@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+}
+
+.nav-links,li{
+    display: inline;
+    list-style-type: none;
+    justify-content: center;
+
+}
+.nav-link{
+    padding: 5px 5px;
+    border-radius: 20px;
+    margin: 10px 15px;
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.nav-link:hover{
+    background-color:#f50050;
+    color:black;
+    transition: 0.5s;
+
+}
