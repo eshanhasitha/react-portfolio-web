@@ -4,6 +4,41 @@
     box-sizing: border-box;
 }
 
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;   
+    inherits: false;
+}
+
+.nav-logo::after ,.nav-logo::before{
+    content: '';
+    position: absolute;
+    height: 90px;
+    width: 90px;
+    border-radius: 50px;
+    padding: 5px;
+    left: 15px;
+    top: 15px;
+    z-index: -1;
+    background-image: conic-gradient(from var(--angle)  ,#ff4545,#00ff99,#006aff,#ff0095,#ff4545);
+    animation: 3s spin linear infinite;
+}
+
+
+.nav-logo::before{
+    filter: blur(1.5rem);
+
+}
+
+@keyframes spin{
+    0%{
+        --angle: 0deg;
+    }
+    100%{
+        --angle: 360deg;
+    }
+}
+
 
 
 .navbar{

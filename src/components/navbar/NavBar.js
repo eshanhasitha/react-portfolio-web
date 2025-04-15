@@ -10,18 +10,19 @@ const user = {
 function NavBar() {
   return (
     <div className='navbar'>  
-      <a href='#h'><img 
-      src={user.imageUrl} 
-      alt={'Photo of '+user.name}
-      style={{
-        width: user.imageSize,
-        height: user.imageSize,
-        borderRadius: '50%',
-        padding: '5px',
-        background: 'linear-gradient(267deg, #DA7C25 0.36%,#B923E1 102.06%)',
-        margin: '0 10px 0 0',
-      }} />
-      </a>
+      <div className='nav-logo'>
+        <a href='#h'><img 
+        src={user.imageUrl} 
+        alt={'Photo of '+user.name}
+        style={{
+          width: user.imageSize,
+          height: user.imageSize,
+          borderRadius: '50%',
+          margin: '0 10px 0 0',
+          position:'relative',
+        }} />
+        </a>
+      </div>
       <ul className='nav-links'>
         <li ><a className='nav-link' href='#home'>Home</a></li>       
         <li ><a className='nav-link' href='#projects'>Projects</a></li>       
