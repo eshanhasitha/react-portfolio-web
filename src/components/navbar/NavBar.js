@@ -17,6 +17,8 @@ function NavBar() {
         width: user.imageSize,
         height: user.imageSize,
         borderRadius: '50%',
+        padding: '5px',
+        background: 'linear-gradient(267deg, #DA7C25 0.36%,#B923E1 102.06%)',
         margin: '0 10px 0 0',
       }} />
       </a>
@@ -29,7 +31,7 @@ function NavBar() {
       </ul>
 
       <div className='nav-connect'>
-        Connect With Me
+        Connect with me!
       </div>
     </div>
   )
