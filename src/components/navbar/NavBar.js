@@ -4,7 +4,7 @@ import './NavBar.css'
 const user = {
   name: 'Esham Hasitha',
   imageUrl: 'https://avatars.githubusercontent.com/u/181459091?s=400&u=6ba444a46d0ac4751acd8c50ada2155a3fb7149d&v=4',
-  imageSize: 90,
+  imageSize: 70,
 };
 
 function NavBar() {
