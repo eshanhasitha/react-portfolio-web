@@ -81,6 +81,7 @@
     align-items: center;
     gap:5px;
     position: relative;
+    transition: 0.5s;
 }
 
 .nav-Github::after,.nav-Github::before{
@@ -94,11 +95,16 @@
     z-index: -1 ;
     background-image: conic-gradient(from var(--angle)  ,white, #161513,white);
     animation: 3s spin linear infinite;
+    transition: 0.5s;
+    
 }
 
 .nav-Github::before{
     filter: blur(1.5rem);
     
+}
+.nav-Github:hover{
+    transform: scale(1.05);
 }
 
 @keyframes spin{
