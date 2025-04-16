@@ -31,8 +31,13 @@ function NavBar() {
         <li ><a className='nav-link' href='#contact'>Contact</a></li>
       </ul>
 
-      <div className='nav-connect'>
-        Connect with me!
+      <div className='nav-Github'>
+        <a href='https://github.com/eshanhasitha' className='github-link'>
+          <img src='https://skillicons.dev/icons?i=github' alt='github-logo'/>
+        </a>
+        <a href='https://github.com/eshanhasitha' className='github-link'> 
+        GitHub
+        </a>
       </div>
     </div>
   )
