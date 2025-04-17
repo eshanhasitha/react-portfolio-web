@@ -20,9 +20,9 @@ function Profile() {
         <h1><span>I'm  {user.name},</span> {user.bio}</h1>
         
         <div className='pro-actions'>
-        <div className='act-connect'>
-          Connect with me!
-        </div>
+          <div className='act-connect'>
+            Connect with me!
+          </div>
         </div>
     </div>
   )

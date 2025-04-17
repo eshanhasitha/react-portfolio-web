@@ -2,14 +2,16 @@ import React from 'react'
 import './App.css'
 import NavBar from './components/navbar/NavBar'
 import Profile from './components/profile/Profile'
+import About from './components/about/About'
 
 
 
 function App() {
   return (
     <div>
-      <NavBar />
+      <NavBar/>
       <Profile/>
+      <About/>
     </div>
   )
 }

@@ -91,7 +91,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50px;
-    padding: 1pxpx;
+    padding: 0;
     z-index: -1 ;
     background-image: conic-gradient(from var(--angle)  ,white, #161513,white);
     animation: 3s spin linear infinite;
