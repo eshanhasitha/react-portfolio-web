@@ -4,16 +4,19 @@
     flex-direction: column;
     gap: 2rem;
 }
+
 .profile img{
     margin-top: 150px;
     padding: 2px;
     background: linear-gradient(267deg, #DA7C25 0.36%,#B923E1 102.06%);
 }
+
 .profile h1{
     text-align: center;
     width: 70%;
     font-size: 90px
 }
+
 .profile h1 span{
     background: linear-gradient(267deg, #DA7C25 0.36%,#B923E1 102.06%);
     background-clip: text;
@@ -21,6 +24,7 @@
     -webkit-text-fill-color: transparent;
 
 }
+
 .pro-actions{
     display: flex;
     align-items: center;
@@ -29,6 +33,7 @@
     font-weight: bold;
     margin-bottom: 50px;
 }
+
 .act-connect{
     padding: 20px 40px;
     border-radius: 50px;
@@ -38,6 +43,7 @@
     cursor: pointer;
     transition: 0.5s;
 }
+
 .act-connect:hover{
     background: linear-gradient(267deg, #DA7C25 0.36%,#B923E1 70.06%);
     color:black;
