@@ -7,7 +7,7 @@ function About() {
         <div className='about-title'>
             <h1>About me</h1>
         </div>
-        <div className='about-body-s1'>
+        <div className='about-body'>
             <div className='about-left'>
                 <img src='https://avatars.githubusercontent.com/u/181459091?s=400&u=6ba444a46d0ac4751acd8c50ada2155a3fb7149d&v=4' alt='eshan-img'></img>
             </div>
