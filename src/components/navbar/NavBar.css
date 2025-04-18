@@ -24,7 +24,6 @@
     animation: 3s spin linear infinite;
 }
 
-
 .nav-logo::before{
     filter: blur(1.5rem);
 
@@ -39,8 +38,6 @@
     }
 }
 
-
-
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -54,6 +51,7 @@
     justify-content: center;
 
 }
+
 .nav-link{
     padding: 5px 5px;
     border-radius: 20px;
@@ -72,7 +70,7 @@
 
 }
 
-.nav-Github{
+.nav-github{
     background-color: #2A2F40;
     padding: 5px 10px;
     margin-right: 10px;
@@ -84,7 +82,7 @@
     transition: 0.5s;
 }
 
-.nav-Github::after,.nav-Github::before{
+.nav-github::after,.nav-github::before{
     content: '';
     position: absolute;
     right: 0;
@@ -99,11 +97,11 @@
     
 }
 
-.nav-Github::before{
+.nav-github::before{
     filter: blur(1.5rem);
-    
 }
-.nav-Github:hover{
+
+.nav-github:hover{
     transform: scale(1.05);
 }
 
