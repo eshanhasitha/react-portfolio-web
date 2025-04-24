@@ -1,6 +1,4 @@
-.about{
-    display: flex;
-    flex-direction: column;
+.about{ 
     margin: 80px 170px;
     padding: 50px;
     background: #161513;
