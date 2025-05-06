@@ -29,11 +29,28 @@ function Contact() {
             </div>
           </div>
         <div className='cont-right'>
+          <form action="https://formsubmit.co/eshanhasitha13@gmail.com" method='POST'>
+            <div className='form-c'>
+              <input type="text" name='name' placeholder='Name' required/>
+              <input type="email" name='email' placeholder='Email' required/>
+              <textarea name="message" rows="5" placeholder='Message' required></textarea>
+              <input type="hidden" name="_next" value="https://eshanhasitha.github.io/react-portfolio-web/"/>
+              
+            </div>
+
+            <div className='form-b'>
+              <button type='reset' className='btn'>Reset</button>
+              <button type='submit' className='btn'>Send</button>
+            </div>
+          
+          
+          </form>
+
           
           
         </div>
       </div>
-    </div>
+    </div>  
   );
 }
 
