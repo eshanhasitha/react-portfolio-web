@@ -20,11 +20,13 @@ function About() {
                 <div className='about-skills-cont'>
                     <h3>My Skills</h3>
                     <div className='skills-list'>
-                        <div className='skill'><img src='https://skillicons.dev/icons?i=html' alt='html'/><hr style={{width: '70%'}}></hr></div>
+                        <div className='skill'><img src='https://skillicons.dev/icons?i=html' alt='html'/><hr style={{width: '60%'}}></hr></div>
                         <div className='skill'><img src='https://skillicons.dev/icons?i=css' alt='css'/><hr style={{width: '55%'}}></hr></div>
                         <div className='skill'><img src='https://skillicons.dev/icons?i=js' alt='js'/><hr style={{width: '30%'}}></hr></div>
-                        <div className='skill'><img src='https://skillicons.dev/icons?i=mysql' alt='mysql'/><hr style={{width: '60%'}}></hr></div>
+                        <div className='skill'><img src='https://skillicons.dev/icons?i=mysql' alt='mysql'/><hr style={{width: '55%'}}></hr></div>
                         <div className='skill'><img src='https://skillicons.dev/icons?i=c' alt='c'/><hr style={{width: '50%'}}></hr></div>
+                        <div className='skill'><img src='https://skillicons.dev/icons?i=java' alt='java'/><hr style={{width: '50%'}}></hr></div>
+                        <div className='skill'><img src='https://skillicons.dev/icons?i=python' alt='python'/><hr style={{width: '20%'}}></hr></div>
                     </div>
                 </div>
             </div>
