@@ -4,3 +4,7 @@ body{
     color: white;
     font-family: 'outfit';
 }
+html{
+    scroll-behavior: smooth;
+    scroll-padding: 1%;
+}   
