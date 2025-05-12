@@ -68,6 +68,7 @@
     padding: 5px 10px;
     margin-right: 10px;
     border-radius: 50px;
+    border: none;
     display: flex;
     align-items: center;
     gap:5px;
@@ -86,7 +87,6 @@
     z-index: -1 ;
     background-image: conic-gradient(from var(--angle)  ,#161513,white, #161513,white,#161513);
     animation: 3s spin linear infinite;
-    transition: 0.5s;
     
 }
 
@@ -94,9 +94,8 @@
     filter: blur(0.7rem);
 }
 
-.nav-github:hover{
-    transform: scale(1.05);
-}
+
+
 
 @keyframes spin{
     0%{
