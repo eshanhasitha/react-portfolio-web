@@ -11,7 +11,7 @@ function NavBar() {
   return (
     <div className='navbar'>  
       <div className='nav-logo'>
-        <a href='#h'><img 
+        <a href='#profile'><img 
         src={user.imagePath} 
         alt={'Photo of '+user.name}
         style={{

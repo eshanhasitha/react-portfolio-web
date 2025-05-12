@@ -11,7 +11,7 @@ const user = {
 
 function Profile() {
   return (
-    <div className='profile'>
+    <div className='profile' id='profile'>
         <img  src={user.imageUrl} alt={user.imageAlt} style={{
           width: user.size,
           height: user.size,
