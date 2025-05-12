@@ -2,9 +2,9 @@ import React from 'react'
 import './NavBar.css'
 
 const user = {
-  name: 'Esham Hasitha',
-  imageUrl: 'https://avatars.githubusercontent.com/u/181459091?s=400&u=6ba444a46d0ac4751acd8c50ada2155a3fb7149d&v=4',
-  imageSize: 70,
+  name: 'Eshan Hasitha',
+  imagePath:require('../../assets/logo.png'),  
+  imageSize: 100,
 };
 
 function NavBar() {
@@ -12,13 +12,13 @@ function NavBar() {
     <div className='navbar'>  
       <div className='nav-logo'>
         <a href='#h'><img 
-        src={user.imageUrl} 
+        src={user.imagePath} 
         alt={'Photo of '+user.name}
         style={{
           width: user.imageSize,
           height: user.imageSize,
           borderRadius: '50%',
-          margin: '0 10px 0 0',
+          margin: '0',
           position:'relative',
         }} />
         </a>
