@@ -9,7 +9,7 @@ const user = {
 
 function NavBar() {
   return (
-    <div className='navbar'>  
+    <div className='navbar' id='navbar'>  
       <div className='nav-logo'>
         <a href='#profile'><img 
         src={user.imagePath} 
@@ -24,7 +24,7 @@ function NavBar() {
         </a>
       </div>
       <ul className='nav-links'>
-        <li ><a className='nav-link' href='#home'>Home</a></li>       
+        <li ><a className='nav-link' href='#navbar'>Home</a></li>       
         <li ><a className='nav-link' href='#projects'>Projects</a></li>       
         <li ><a className='nav-link' href='#resume'>Resume</a></li>
         <li ><a className='nav-link' href='#about'>About</a></li>
