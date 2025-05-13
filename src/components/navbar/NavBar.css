@@ -64,6 +64,7 @@
 }
 
 .nav-github{
+    text-decoration: none;
     background-color: #2A2F40;
     padding: 5px 10px;
     margin-right: 10px;
