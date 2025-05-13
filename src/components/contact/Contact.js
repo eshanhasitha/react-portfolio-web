@@ -34,6 +34,8 @@ function Contact() {
               <input type="text" name='name' placeholder='Name' required/>
               <input type="email" name='email' placeholder='Email' required/>
               <textarea name="message" rows="5" placeholder='Message' required></textarea>
+              
+              
               <input type="hidden" name="_next" value="https://eshanhasitha.github.io/react-portfolio-web/"/>
               
             </div>
@@ -41,6 +43,7 @@ function Contact() {
             <div className='form-b'>
               <button type='reset' className='btn'>Reset</button>
               <button type='submit' className='btn'>Send</button>
+              <input type="hidden" name="_captcha" value="false"/>
             </div>
           
           
