@@ -31,14 +31,14 @@ function NavBar() {
         <li ><a className='nav-link' href='#contact'>Contact</a></li>
       </ul>
 
-      <div className='nav-github'>
+      <a className='nav-github' href='https://github.com/eshanhasitha'>
         <a href='https://github.com/eshanhasitha' className='github-link'>
           <img src='https://skillicons.dev/icons?i=github' alt='github-logo'/>
         </a>
         <a href='https://github.com/eshanhasitha' className='github-link'> 
         GitHub
         </a>
-      </div>
+      </a>
     </div>
   )
 }
