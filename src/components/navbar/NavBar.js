@@ -31,11 +31,11 @@ function NavBar() {
         <li ><a className='nav-link' href='#contact'>Contact</a></li>
       </ul>
 
-      <a className='nav-github' href='https://github.com/eshanhasitha'>
-        <a href='https://github.com/eshanhasitha' className='github-link'>
+      <a className='nav-github' href='https://github.com/eshanhasitha' target='_blank'>
+        <a href='https://github.com/eshanhasitha' className='github-link' target='_blank'>
           <img src='https://skillicons.dev/icons?i=github' alt='github-logo'/>
         </a>
-        <a href='https://github.com/eshanhasitha' className='github-link'> 
+        <a href='https://github.com/eshanhasitha' className='github-link' target='_blank'> 
         GitHub
         </a>
       </a>
