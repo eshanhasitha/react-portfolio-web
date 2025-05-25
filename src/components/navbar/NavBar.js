@@ -24,11 +24,11 @@ function NavBar() {
         </a>
       </div>
       <ul className='nav-links'>
-        <li ><a className='nav-link' href='#navbar'>Home</a></li>       
-        <li ><a className='nav-link' href='#projects'>Projects</a></li>       
-        <li ><a className='nav-link' href='#resume'>Resume</a></li>
-        <li ><a className='nav-link' href='#about'>About</a></li>
-        <li ><a className='nav-link' href='#contact'>Contact</a></li>
+        <li className='nav-li-co'><a className='nav-link' href='#navbar'>Home<hr></hr></a></li>       
+        <li className='nav-li-co'><a className='nav-link' href='#projects'>Projects<hr></hr></a></li>       
+        <li className='nav-li-co'><a className='nav-link' href='#resume'>Resume<hr></hr></a></li>
+        <li className='nav-li-co'><a className='nav-link' href='#about'>About<hr></hr></a></li>
+        <li className='nav-li-co'><a className='nav-link' href='#contact'>Contact<hr></hr></a></li>
       </ul>
 
       <a className='nav-github' href='https://github.com/eshanhasitha' target='blank'>

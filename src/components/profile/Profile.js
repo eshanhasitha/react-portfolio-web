@@ -6,7 +6,7 @@ const user = {
   imageUrl:'https://avatars.githubusercontent.com/u/181459091?s=400&u=6ba444a46d0ac4751acd8c50ada2155a3fb7149d&v=4',
   imageAlt: 'Eshan',
   size: 200,
-  bio: 'currently following CS degree',
+  bio: 'currently following IT degree',
 };
 
 function Profile() {
