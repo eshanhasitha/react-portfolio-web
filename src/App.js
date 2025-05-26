@@ -5,6 +5,7 @@ import Profile from './components/profile/Profile'
 import About from './components/about/About'
 import Projects from './components/projects/Projects'
 import Contact from './components/contact/Contact'
+import Footer from './components/footer/Footer'
 
 
 
@@ -16,6 +17,7 @@ function App() {
       <Projects/>
       <About/>
       <Contact/>
+      <Footer/>
     </div>
   )
 }
