@@ -19,7 +19,7 @@
 }
 
 .top-left p{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 200;
 }
 
@@ -86,12 +86,12 @@
 .bottom-left{
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
 }
 
-.bottom-left p{
-    font-size: 20px;
+.footer-bottom p{
+    font-size: 15px;
     font-weight: 200;
 }
 
@@ -107,8 +107,4 @@
 .bottom-left a img{
     width: 20px;
     height: 20px;
-}
-.bottom-right p{
-    font-size: 20px;
-    font-weight: 200;
 }
