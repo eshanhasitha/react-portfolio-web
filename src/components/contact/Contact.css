@@ -75,6 +75,7 @@
     padding: 10px;
     border-radius: 5px;
     border: none;
+    outline: none;
     background:  #32323B;
     color: white;
     font-size: 20px;
