@@ -18,6 +18,7 @@ function App() {
       <About/>
       <Contact/>
       <Footer/>
+      <div className='dot'></div>
     </div>
   )
 }

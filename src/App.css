@@ -8,3 +8,13 @@ html{
     scroll-behavior: smooth;
     scroll-padding: 5%;
 }   
+
+.dot{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ffffff, #add8e6);
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.3);
+}
