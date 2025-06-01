@@ -17,8 +17,8 @@ function Dot() {
     };
 
     const animate = () => {
-      dotX += (mouseX - dotX - 10) * 0.1;
-      dotY += (mouseY - dotY - 10) * 0.1;
+      dotX += (mouseX - dotX - 10) * 0.09;
+      dotY += (mouseY - dotY - 10) * 0.09;
       if (dot) {
         dot.style.transform = `translate(${dotX}px, ${dotY}px)`;
       }
