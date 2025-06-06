@@ -21,7 +21,7 @@ function Profile() {
         
         <div className='pro-actions'>
           <div className='act-connect'>
-            Connect with me!
+            <a href='#contact'>Connect with me!</a>
           </div>
         </div>
     </div>

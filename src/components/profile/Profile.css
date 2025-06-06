@@ -44,8 +44,17 @@
     transition: 0.5s;
 }
 
-.act-connect:hover{
+.act-connect a{
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+}
+
+.act-connect:hover {
     background: linear-gradient(267deg, #DA7C25 0.36%,#B923E1 70.06%);
-    color:black;
     transform: scale(1.05);
+}
+
+.act-connect:hover a{
+    color: black;
 }
