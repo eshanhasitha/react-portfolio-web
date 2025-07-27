@@ -10,7 +10,6 @@ import Dot from './components/dot/Dot'
 import Background from './components/background/Background'
 
 
-
 function App() {
   return (
     
