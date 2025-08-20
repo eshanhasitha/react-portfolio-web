@@ -108,3 +108,44 @@
     width: 20px;
     height: 20px;
 }
+
+@media screen and (max-width: 768px) {
+    .footer-top{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top-left h1{
+        font-size: 30px;
+    }
+
+    .top-right{
+        margin-top: 20px;
+        width: 75%;
+        flex-direction: row;
+        align-items: center;
+        
+    }
+
+    .top-right input{
+
+        width: 150px;
+        height: 40px;
+        
+    }
+
+    .sub-btn{
+        width: 35%;
+        height: 50px;
+        font-size: 20px;
+        justify-items: center;
+        align-items: center;
+
+    }
+
+    .footer-bottom{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}

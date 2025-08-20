@@ -18,7 +18,7 @@ function Footer() {
                     <img src='https://img.icons8.com/?size=100&id=84020&format=png&color=FFFFFF' alt='user-ico'></img>
                     <input type='email' placeholder='Enter your email' />
                 </div>
-                <div className='sub-btn'>Subecribe</div>
+                <div className='sub-btn'><p>Subecribe</p></div>
             </div>
         </div>
 

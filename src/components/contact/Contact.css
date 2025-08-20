@@ -123,4 +123,40 @@
     color:white;
 }
 
+@media screen and (max-width: 768px) {
+    .contact{
+        margin: 20px;
+        padding: 20px;
+    }
 
+    .cont-title h1{
+        font-size: 50px;
+    }
+
+    .cont-about{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-left h1{
+        font-size: 30px;
+    }
+
+    .about-left p{
+        font-size: 18px;
+    }
+
+    .form-c input, .form-c textarea{
+        font-size: 18px;
+    }
+
+    .btn{
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+
+    .det img{
+        width: 30px;
+        height: 30px;
+    }
+}

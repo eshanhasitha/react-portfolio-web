@@ -58,3 +58,21 @@
 .act-connect:hover a{
     color: black;
 }
+
+@media (max-width: 768px) {
+    .profile h1{
+        font-size: 50px;
+    }
+    .profile img{
+        width: 200px;
+        height: 200px;
+    }
+    .pro-actions{
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .act-connect{
+        width: 100%;
+        text-align: center;
+    }
+}
