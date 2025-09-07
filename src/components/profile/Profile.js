@@ -14,7 +14,10 @@ function Profile() {
     const typed = new Typed("#typed-text", {
       strings: [
         `I'm ${user.name},`,
-        "currently following IT degree"
+        "Currently following IT degree",
+        "I've been interest in Full-Stack Development",
+        "I love coding and learning new technologies",
+        "Welcome to my portfolio!"
       ],
       typeSpeed: 60,
       backSpeed: 40,
@@ -51,7 +54,10 @@ function Profile() {
           <a href='#contact'>Connect with me!</a>
         </div>
       </div>
+      <br></br>
+      <br></br>
     </div>
+    
   );
 }
 
