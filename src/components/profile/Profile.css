@@ -59,6 +59,8 @@
     color: black;
 }
 
+
+
 @media (max-width: 768px) {
     .profile h1{
         font-size: 50px;
