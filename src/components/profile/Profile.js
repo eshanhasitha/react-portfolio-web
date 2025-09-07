@@ -11,24 +11,21 @@ const user = {
 
 function Profile() {
   useEffect(() => {
-    // First line typing
-    const typed1 = new Typed("#typed-line1", {
-      strings: [`I'm ${user.name},`],
+    const typed = new Typed("#typed-text", {
+      strings: [
+        `I'm ${user.name},`,
+        "currently following IT degree"
+      ],
       typeSpeed: 60,
-      showCursor: false,
-      onComplete: () => {
-        // Start second line after first finishes
-        new Typed("#typed-line2", {
-          strings: ["currently following IT degree"],
-          typeSpeed: 60,
-          showCursor: true,
-          cursorChar: "|",
-        });
-      }
+      backSpeed: 40,
+      backDelay: 1000,  
+      loop: true,       
+      showCursor: true,
+      cursorChar: "|"
     });
 
     return () => {
-      typed1.destroy();
+      typed.destroy();
     };
   }, []);
 
@@ -44,10 +41,9 @@ function Profile() {
         }}
       />
 
-      {/* Typed text */}
+      
       <h1>
-        <div id="typed-line1"></div>
-        <div id="typed-line2"></div>
+        <span id="typed-text"></span>
       </h1>
 
       <div className='pro-actions'>
