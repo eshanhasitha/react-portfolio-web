@@ -40,13 +40,13 @@ function NavBar() {
           <a className="nav-link" href="#navbar">Home<hr /></a>
         </li>
         <li className="nav-li-co">
+          <a className="nav-link" href="#about">About<hr /></a>
+        </li>
+        <li className="nav-li-co">
           <a className="nav-link" href="#projects">Projects<hr /></a>
         </li>
         <li className="nav-li-co">
           <a className="nav-link" href="#resume">Resume<hr /></a>
-        </li>
-        <li className="nav-li-co">
-          <a className="nav-link" href="#about">About<hr /></a>
         </li>
         <li className="nav-li-co">
           <a className="nav-link" href="#contact">Contact<hr /></a>
