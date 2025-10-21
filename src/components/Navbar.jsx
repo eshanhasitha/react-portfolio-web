@@ -23,7 +23,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-[#161513] backdrop-blur-sm shadow-lg z-50">
+    <nav className="fixed top-0 left-0 right-0 h-20  content-center bg-[#161513] backdrop-blur-sm shadow-lg z-5">
       <div className="max-w-8xl mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
           {/* Logo Section */}
@@ -66,7 +66,7 @@ const NavBar = () => {
               className="relative flex items-center gap-2 px-5 py-2.5 bg-gray-800 text-white font-semibold text-sm rounded-full overflow-hidden transition-all duration-300 hover:bg-gray-700 hover:scale-105 group"
             >
               <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute inset-[-2px] rounded-full animate-spin-slow bg-gradient-conic"></div>
+                <div className="absolute inset-[-2px] rounded-full"></div>
               </div>
               <img
                 src="https://skillicons.dev/icons?i=github"

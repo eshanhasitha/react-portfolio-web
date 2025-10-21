@@ -56,7 +56,7 @@ const Profile = () => {
   return (
     <div className="flex flex-col items-center gap-5 py-5" id="profile">
       {/* Profile Image with Gradient Border */}
-      <div className="mt-12 lg:mt-32 p-0.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full">
+      <div className="mt-12 lg:mt-32 p-0.5 bg-gradient-to-r from-[#DA7C25] to-[#B923E1] rounded-full">
         <img
           src={user.imageUrl}
           alt={user.imageAlt}
@@ -72,7 +72,7 @@ const Profile = () => {
       <h1 className="text-center w-11/12 lg:w-3/4 text-3xl lg:text-7xl font-bold text-white min-h-[120px] lg:min-h-[200px] flex items-center justify-center">
         <span 
           ref={typedTextRef}
-          className="bg-gradient-to-r from-orange-500 to-purple-600 bg-clip-text text-transparent"
+          className="bg-gradient-to-r from-[#DA7C25] to-[#B923E1] bg-clip-text text-transparent"
         ></span>
         <span className="animate-blink ml-1">|</span>
       </h1>
@@ -81,7 +81,7 @@ const Profile = () => {
       <div className="flex items-center gap-4 text-lg lg:text-2xl font-bold mb-12">
         <Link
           to="/contact"
-          className="px-8 py-4 lg:px-10 lg:py-5 rounded-full bg-gradient-to-r from-[#DA7C25] to-[#B923E1] text-white font-bold text-xl lg:text-2xl transition-all duration-500 hover:scale-105 hover:from-orange-600 hover:to-purple-700 hover:text-black hover:shadow-lg hover:shadow-purple-500/50 cursor-pointer"
+          className="px-8 py-4 lg:px-10 lg:py-5 rounded-full bg-gradient-to-r from-[#DA7C25] to-[#B923E1] text-white font-bold text-xl lg:text-2xl transition-all duration-500 hover:scale-105 hover:text-black hover:shadow-lg  cursor-pointer"
         >
           Connect with me!
         </Link>

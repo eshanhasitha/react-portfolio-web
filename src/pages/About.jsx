@@ -66,7 +66,7 @@ const About = () => {
                   />
                   <div className="flex-1 bg-gray-800 rounded-full h-2.5 overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-orange-500 to-purple-600 rounded-full transition-all duration-1000 ease-out"
+                      className="h-full bg-gradient-to-r from-[#DA7C25] to-[#B923E1] rounded-full transition-all duration-1000 ease-out"
                       style={{ width: `${skill.level}%` }}
                     ></div>
                   </div>
@@ -82,7 +82,7 @@ const About = () => {
         {achievements.map((achievement, index) => (
           <React.Fragment key={index}>
             <div className="text-center">
-              <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-orange-500 to-purple-600 bg-clip-text text-transparent mb-2">
+              <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#DA7C25] to-[#B923E1] bg-clip-text text-transparent mb-2">
                 {achievement.value}
               </h2>
               <p className="text-gray-400 text-sm lg:text-base font-medium tracking-wider">
@@ -90,7 +90,7 @@ const About = () => {
               </p>
             </div>
             {index < achievements.length - 1 && (
-              <div className="hidden lg:block w-px h-16 bg-gradient-to-b from-orange-500 to-purple-600"></div>
+              <div className="hidden lg:block w-px h-16 bg-gradient-to-b from-[#DA7C25] to-[#B923E1]"></div>
             )}
           </React.Fragment>
         ))}
