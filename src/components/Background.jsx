@@ -21,7 +21,7 @@ const Background = ({ count = 40 }) => {
       {particles.map((p) => (
         <span
           key={p.id}
-          className="absolute rounded-full bg-white blur-sm"
+          className="absolute rounded-full bg-white blur-xs"
           style={{
             left: `${p.left}%`,
             bottom: `-10px`,

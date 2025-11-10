@@ -2,71 +2,90 @@ import React from 'react';
 
 const About = () => {
   const skills = [
-    { name: 'HTML', icon: 'https://skillicons.dev/icons?i=html', level: 60 },
-    { name: 'CSS', icon: 'https://skillicons.dev/icons?i=css', level: 55 },
-    { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js', level: 30 },
-    { name: 'MySQL', icon: 'https://skillicons.dev/icons?i=mysql', level: 55 },
-    { name: 'C', icon: 'https://skillicons.dev/icons?i=c', level: 50 },
-    { name: 'Java', icon: 'https://skillicons.dev/icons?i=java', level: 50 },
-    { name: 'Python', icon: 'https://skillicons.dev/icons?i=python', level: 20 },
+    { name: 'HTML', icon: 'https://skillicons.dev/icons?i=html', level: 90 },
+    { name: 'CSS', icon: 'https://skillicons.dev/icons?i=css', level: 85 },
+    { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js', level: 75 },
+    { name: 'React', icon: 'https://skillicons.dev/icons?i=react', level: 80 },
+    { name: 'Node.js', icon: 'https://skillicons.dev/icons?i=nodejs', level: 70 },
+    { name: 'MySQL', icon: 'https://skillicons.dev/icons?i=mysql', level: 75 },
+    { name: 'Java', icon: 'https://skillicons.dev/icons?i=java', level: 70 },
+    { name: 'Python', icon: 'https://skillicons.dev/icons?i=python', level: 65 },
   ];
 
   const achievements = [
-    { value: '1+', label: 'YEARS OF EXPERIENCE' },
-    { value: '0+', label: 'PROJECTS COMPLETED' },
-    { value: '0+', label: 'INTERNSHIPS' },
+    { value: '1+', label: 'YEARS EXPERIENCE' },
+    { value: '1+', label: 'PROJECTS COMPLETED' },
+    { value: '100%', label: 'CLIENT SATISFACTION' },
   ];
 
   return (
-    <div className="mx-5 my-20 md:mx-28 lg:mx-44 p-8 md:p-12 bg-[#161513] rounded-2xl relative" style={{
-      boxShadow: '0 0 30px rgba(255, 255, 255, 0.3)'
-    }} id="about">
-      {/* Glowing Border Effect */}
-      <div className="absolute inset-0 bg-white rounded-2xl -z-10 blur-xl opacity-20"></div>
+    <div className="mx-4 my-25 md:mx-16 lg:mx-32 xl:mx-44 p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30" id="about">
 
       {/* Title */}
-      <div className="text-center mb-12">
-        <h1 className="text-5xl lg:text-7xl font-bold text-white mb-4">
-          About Me
+      <div className="text-center mb-16">
+        <h1 className="text-5xl lg:text-7xl font-bold mb-4">
+          <span className="bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">
+            About Me
+          </span>
         </h1>
+        <div className="w-24 h-1 bg-gradient-to-r from-[#3B82F6] to-[#10B981] mx-auto rounded-full"></div>
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 mt-16">
+      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         {/* Left - Image */}
         <div className="flex-shrink-0">
-          <img
-            src="https://avatars.githubusercontent.com/u/181459091?s=400&u=6ba444a46d0ac4751acd8c50ada2155a3fb7149d&v=4"
-            alt="Eshan Hasitha"
-            className="rounded-2xl w-full max-w-xs lg:max-w-sm shadow-2xl"
-          />
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-2xl blur-xl opacity-30"></div>
+            <img
+              src="https://avatars.githubusercontent.com/u/181459091?s=400&u=6ba444a46d0ac4751acd8c50ada2155a3fb7149d&v=4"
+              alt="Eshan Hasitha"
+              className="relative rounded-2xl w-full max-w-xs lg:max-w-sm shadow-2xl border-2 border-[#3B82F6]"
+            />
+          </div>
         </div>
 
         {/* Right - Content */}
-        <div className="flex flex-col gap-6 flex-1">
+        <div className="flex flex-col gap-8 flex-1">
           {/* Description */}
-          <div className="text-gray-300">
-            <p className="text-lg lg:text-xl font-medium leading-relaxed">
-              I am an undergraduate student at Sabaragamuwa University of Sri Lanka, currently pursuing a BSc (Hons) in Information Systems. I am passionate about technology and software development, and I aspire to become a skilled Software Engineer in the future. I'm always eager to learn new concepts, improve my coding skills, and contribute to meaningful tech projects.
+          <div className="space-y-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#F1F5F9]">
+              Hello! I'm Eshan Hasitha
+            </h2>
+            <p className="text-lg text-[#94A3B8] leading-relaxed">
+              I am an undergraduate student at <span className="text-[#3B82F6] font-semibold">Sabaragamuwa University of Sri Lanka</span>, 
+              pursuing a BSc (Hons) in Information Systems. I'm passionate about creating innovative web solutions 
+              and constantly expanding my technical expertise.
+            </p>
+            <p className="text-lg text-[#94A3B8] leading-relaxed">
+              My journey in software development is driven by curiosity and a commitment to excellence. 
+              I believe in writing clean, efficient code and building user-centric applications that make a difference.
             </p>
           </div>
 
           {/* Skills Section */}
           <div className="mt-6">
-            <h3 className="text-2xl lg:text-3xl font-semibold text-white text-center mb-8">
-              My Skills
+            <h3 className="text-2xl md:text-3xl font-bold text-[#F1F5F9] mb-6 flex items-center gap-2">
+              <span className="w-2 h-8 bg-gradient-to-b from-[#3B82F6] to-[#10B981] rounded-full"></span>
+              Technical Skills
             </h3>
-            <div className="flex flex-col gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {skills.map((skill, index) => (
-                <div key={index} className="flex items-center gap-6 lg:gap-12">
-                  <img
-                    src={skill.icon}
-                    alt={skill.name}
-                    className="w-12 h-12 flex-shrink-0"
-                  />
-                  <div className="flex-1 bg-gray-800 rounded-full h-2.5 overflow-hidden">
+                <div key={index} className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={skill.icon}
+                        alt={skill.name}
+                        className="w-8 h-8"
+                      />
+                      <span className="text-[#F1F5F9] font-semibold">{skill.name}</span>
+                    </div>
+                    <span className="text-[#3B82F6] font-semibold">{skill.level}%</span>
+                  </div>
+                  <div className="w-full bg-[#334155] rounded-full h-2 overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-[#DA7C25] to-[#B923E1] rounded-full transition-all duration-1000 ease-out"
+                      className="h-full bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-full transition-all duration-1000 ease-out"
                       style={{ width: `${skill.level}%` }}
                     ></div>
                   </div>
@@ -78,21 +97,16 @@ const About = () => {
       </div>
 
       {/* Achievements */}
-      <div className="flex flex-col lg:flex-row justify-around items-center gap-8 mt-16 pt-12 border-t border-gray-800">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 pt-12 border-t border-[#475569]/30">
         {achievements.map((achievement, index) => (
-          <React.Fragment key={index}>
-            <div className="text-center">
-              <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#DA7C25] to-[#B923E1] bg-clip-text text-transparent mb-2">
-                {achievement.value}
-              </h2>
-              <p className="text-gray-400 text-sm lg:text-base font-medium tracking-wider">
-                {achievement.label}
-              </p>
-            </div>
-            {index < achievements.length - 1 && (
-              <div className="hidden lg:block w-px h-16 bg-gradient-to-b from-[#DA7C25] to-[#B923E1]"></div>
-            )}
-          </React.Fragment>
+          <div key={index} className="text-center p-6 bg-[#334155] rounded-xl hover:bg-[#475569]/50 transition-all duration-300 hover:scale-105">
+            <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent mb-2">
+              {achievement.value}
+            </h2>
+            <p className="text-[#94A3B8] text-sm lg:text-base font-medium tracking-wider uppercase">
+              {achievement.label}
+            </p>
+          </div>
         ))}
       </div>
     </div>

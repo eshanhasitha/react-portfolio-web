@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const Projects = () => {
   const projects = [
     {
       id: 1,
       title: "Chatty",
-      description: "Chatty is a real-time MERN chat app with JWT auth, image sharing, themes, and responsive design powered by Socket.io.",
+      description: "A real-time MERN stack chat application with JWT authentication, image sharing, theme customization, and responsive design powered by Socket.io.",
       images: [
         "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706640/ChatGPT_Image_Nov_9_2025_04_24_06_PM_aai8go.png",
         "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706625/Screenshot_2025-11-09_164416_wtpavy.png",
@@ -14,7 +14,7 @@ const Projects = () => {
         "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706626/Screenshot_2025-11-09_164459_mriydp.png",
         "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706630/Screenshot_2025-11-09_164703_lcg62o.png"
       ],
-      technologies: ["MERN", "Socket.io", "JWT", "Tailwind CSS"],
+      technologies: ["MongoDB", "Express", "React", "Node.js", "Socket.io", "JWT", "Tailwind CSS"],
       liveLink: "https://chattygo.up.railway.app/",
       githubLink: "https://github.com/eshanhasitha/chat-app"
     }
@@ -37,7 +37,7 @@ const Projects = () => {
         const next = (current + 1) % imgs.length
         return { ...prev, [hoverId]: next }
       })
-    }, 1500)
+    }, 2000)
 
     return () => {
       clearInterval(intervalRef.current)
@@ -45,30 +45,29 @@ const Projects = () => {
     }
   }, [hoverId, projects])
 
-  // Hide section if no projects
   if (projects.length === 0) {
     return null
   }
 
   return (
-    <div className='mx-5 my-20 md:mx-28 lg:mx-44 p-8 md:p-12 bg-[#161513] rounded-2xl relative' style={{
-      boxShadow: '0 0 30px rgba(255, 255, 255, 0.3)'
-    }} id='projects'>
+    <div className='mx-4 my-25 md:mx-16 lg:mx-32 xl:mx-44 p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30' id='projects'>
       
       {/* Title Section */}
-      <div className='text-center'>
-        <h1 className='text-5xl lg:text-7xl font-bold text-white mb-4'>My Projects !.</h1>
-      </div>
-
-      {/* Subtitle */}
-      <div className='text-center mt-6'>
-        <p className='text-lg md:text-xl font-light text-gray-300 max-w-3xl mx-auto'>
-          Here are some of my recent projects that showcase my skills and experience in web development.
+      <div className='text-center mb-16'>
+        <h1 className='text-5xl lg:text-7xl font-bold mb-4'>
+          <span className="bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">
+            My Projects
+          </span>
+        </h1>
+        <div className="w-24 h-1 bg-gradient-to-r from-[#3B82F6] to-[#10B981] mx-auto rounded-full mb-6"></div>
+        <p className='text-lg md:text-xl text-[#94A3B8] max-w-3xl mx-auto leading-relaxed'>
+          Showcase of my recent work demonstrating skills in full-stack development, 
+          modern frameworks, and creative problem-solving.
         </p>
       </div>
 
       {/* Projects Grid */}
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 md:mt-24'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
         {projects.map((project) => {
           const images = project.images?.length ? project.images : [project.image]
           const idx = slideIndex[project.id] ?? 0
@@ -76,8 +75,7 @@ const Projects = () => {
           return (
             <div 
               key={project.id}
-              className='bg-[#32323B] rounded-2xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-xl'
-              style={{ boxShadow: '0 0 20px rgba(255, 255, 255, 0.1)' }}
+              className='group bg-[#334155] rounded-xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#3B82F6]/20 border border-[#475569]/30'
               onMouseEnter={() => setHoverId(project.id)}
               onMouseLeave={() => {
                 setHoverId(null)
@@ -85,9 +83,9 @@ const Projects = () => {
               }}
             >
               {/* Project Image Slideshow */}
-              <div className='relative h-52 overflow-hidden'>
+              <div className='relative h-46 overflow-hidden bg-[#1E293B]'>
                 <div
-                  className='flex h-full transition-transform duration-300 ease-out will-change-transform'
+                  className='flex h-full transition-transform duration-150 ease-in-out'
                   style={{ transform: `translateX(-${idx * 100}%)` }}
                 >
                   {images.map((src, i) => (
@@ -99,24 +97,25 @@ const Projects = () => {
                     />
                   ))}
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#334155] to-transparent opacity-60"></div>
               </div>
 
               {/* Project Content */}
-              <div className='p-6'>
-                <h2 className='text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#DA7C25] to-[#B923E1] bg-clip-text text-transparent mb-3'>
+              <div className='p-3 space-y-2'>
+                <h2 className='text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent'>
                   {project.title}
                 </h2>
                 
-                <p className='text-gray-300 text-base mb-4 leading-relaxed'>
+                <p className='text-[#94A3B8] text-base leading-relaxed line-clamp-3'>
                   {project.description}
                 </p>
 
                 {/* Technologies */}
-                <div className='flex flex-wrap gap-2 mb-5'>
+                <div className='flex flex-wrap gap-2'>
                   {project.technologies.map((tech, index) => (
                     <span 
                       key={index}
-                      className='px-3 py-1 bg-gradient-to-r from-[#DA7C25] to-[#B923E1] rounded-full text-white text-sm font-medium'
+                      className='px-3 py-1 bg-[#1E293B] border border-[#3B82F6]/30 rounded-full text-[#3B82F6] text-xs font-semibold hover:bg-[#3B82F6]/10 transition-colors'
                     >
                       {tech}
                     </span>
@@ -124,12 +123,12 @@ const Projects = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className='flex gap-4'>
+                <div className='flex gap-3 pt-4'>
                   <a 
                     href={project.liveLink}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex-1 text-center border-none text-white px-4 py-2 rounded-full bg-gradient-to-r from-[#DA7C25] to-[#B923E1] text-base font-bold cursor-pointer transition-all duration-500 hover:scale-105 hover:text.black'
+                    className='flex-1 text-center bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white px-4 py-2.5 rounded-full text-sm font-bold transition-all duration-300 hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-105'
                   >
                     Live Demo
                   </a>
@@ -137,7 +136,7 @@ const Projects = () => {
                     href={project.githubLink}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex-1 text-center border-2 border-white text-white px-4 py-2 rounded-full text-base font-bold cursor-pointer transition-all duration-500 hover:scale-105 hover:bg-white hover:text-black'
+                    className='flex-1 text-center border-2 border-[#94A3B8] text-[#94A3B8] px-4 py-2.5 rounded-full text-sm font-bold transition-all duration-300 hover:border-[#3B82F6] hover:text-[#3B82F6] hover:scale-105'
                   >
                     GitHub
                   </a>
