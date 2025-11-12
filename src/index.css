@@ -30,7 +30,7 @@ code {
     monospace;
 }
 
-/* Custom Scrollbar */
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -48,12 +48,12 @@ code {
   background: #2563EB;
 }
 
-/* Smooth Scroll */
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Selection Color */
+
 ::selection {
   background-color: var(--color-accent-primary);
   color: white;

@@ -55,7 +55,6 @@ const Profile = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 py-20" id="profile">
-      {/* Profile Image with Animated Border */}
       <div className="relative mt-8 mb-8">
         <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] via-[#10B981] to-[#3B82F6] rounded-full blur-xl opacity-50 animate-pulse"></div>
         <div className="relative p-1.5 bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-full shadow-2xl">
@@ -71,7 +70,6 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* Typing Animation Container */}
       <div className="w-full max-w-4xl px-4">
         <h1 className="text-center text-4xl md:text-6xl lg:text-7xl font-bold text-[#F1F5F9] min-h-[100px] lg:min-h-[150px] flex items-center justify-center">
           <span 
@@ -83,7 +81,7 @@ const Profile = () => {
 
       </div>
 
-      {/* Call to Action Buttons */}
+
       <div className="flex flex-col sm:flex-row items-center gap-4 mt-12 mb-8 border-amber-300">
         <Link
           to="/contact"
@@ -101,7 +99,6 @@ const Profile = () => {
         </Link>
       </div>
 
-      {/* Stats */}
       <div className="grid grid-cols-3 gap-8 mt-16 w-full max-w-3xl px-4">
         <div className="text-center">
           <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">1+</h3>
@@ -117,7 +114,6 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* Custom CSS */}
       <style>{`
         @keyframes blink {
           0%, 50% { opacity: 1; }

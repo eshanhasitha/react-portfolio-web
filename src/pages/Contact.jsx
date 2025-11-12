@@ -4,9 +4,8 @@ import Footer from '../components/Footer'
 const Contact = () => {
   return (
     <>
-      <div className=' mx-4 my-25 md:mx-16 lg:mx-32 xl:mx-44 p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30' id='contact'>
+      <div className='absolute flex flex-col items-center justify-center mx-4 my-25 md:mx-16 lg:mx-32 xl:mx-44 p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30' id='contact'>
         
-        {/* Title Section */}
         <div className='text-center mb-16'>
           <h1 className='text-5xl lg:text-7xl font-bold mb-4'>
             <span className="bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">
@@ -19,10 +18,9 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* Main Content */}
+       
         <div className='flex flex-col lg:flex-row gap-12 lg:gap-16'>
           
-          {/* Left Section - Contact Info */}
           <div className='flex flex-col gap-8 flex-1'>
             <div className="space-y-4">
               <h2 className='text-3xl md:text-4xl font-bold text-[#F1F5F9]'>
@@ -34,7 +32,6 @@ const Contact = () => {
               </p>
             </div>
             
-            {/* Contact Details */}
             <div className='flex flex-col gap-6 mt-4'>
               <div className='flex gap-5 items-center p-4 bg-[#334155] rounded-xl hover:bg-[#475569]/50 transition-all duration-300 group'>
                 <div className="w-14 h-14 bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -75,7 +72,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Right Section - Contact Form */}
           <div className='flex-1'>
             <form action="https://formsubmit.co/eshanhasitha13@gmail.com" method='POST' className='space-y-5'>
               <div>
@@ -131,6 +127,7 @@ const Contact = () => {
             </form>
           </div>
         </div>
+        
       </div>
       <Footer/>
     </>

@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-
+import { useEffect, useRef } from "react";
 
 function Dot() {
   const dotRef = useRef(null);
@@ -36,7 +35,7 @@ function Dot() {
   return (
     <div
       ref={dotRef}
-      className="fixed w-5 h-5 rounded-full pointer-events-none z-10"
+      className="fixed w-2 h-2 rounded-full pointer-events-none z-100"
       style={{
         background: "radial-gradient(circle, #ffffff, #add8e6)",
         boxShadow: "0 0 20px 10px rgba(255, 255, 255, 0.3)",

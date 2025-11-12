@@ -50,9 +50,9 @@ const Projects = () => {
   }
 
   return (
-    <div className='mx-4 my-25 md:mx-16 lg:mx-32 xl:mx-44 p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30' id='projects'>
+    <div className='absolute flex flex-col items-center justify-center  mx-4 my-25 md:mx-16 lg:mx-32 xl:mx-44 p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30' id='projects'>
       
-      {/* Title Section */}
+      
       <div className='text-center mb-16'>
         <h1 className='text-5xl lg:text-7xl font-bold mb-4'>
           <span className="bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">
@@ -82,7 +82,7 @@ const Projects = () => {
                 setSlideIndex(prev => ({ ...prev, [project.id]: 0 }))
               }}
             >
-              {/* Project Image Slideshow */}
+             
               <div className='relative h-46 overflow-hidden bg-[#1E293B]'>
                 <div
                   className='flex h-full transition-transform duration-150 ease-in-out'
@@ -100,7 +100,7 @@ const Projects = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#334155] to-transparent opacity-60"></div>
               </div>
 
-              {/* Project Content */}
+             
               <div className='p-3 space-y-2'>
                 <h2 className='text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent'>
                   {project.title}
@@ -110,7 +110,6 @@ const Projects = () => {
                   {project.description}
                 </p>
 
-                {/* Technologies */}
                 <div className='flex flex-wrap gap-2'>
                   {project.technologies.map((tech, index) => (
                     <span 
@@ -122,7 +121,7 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* Action Buttons */}
+   
                 <div className='flex gap-3 pt-4'>
                   <a 
                     href={project.liveLink}

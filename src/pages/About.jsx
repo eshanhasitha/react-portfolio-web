@@ -2,12 +2,16 @@ import React from 'react';
 
 const About = () => {
   const skills = [
+    {name: 'git', icon: 'https://skillicons.dev/icons?i=git', level: 70},
+    {name: 'GitHub', icon: 'https://skillicons.dev/icons?i=github', level: 70},
     { name: 'HTML', icon: 'https://skillicons.dev/icons?i=html', level: 90 },
     { name: 'CSS', icon: 'https://skillicons.dev/icons?i=css', level: 85 },
-    { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js', level: 75 },
-    { name: 'React', icon: 'https://skillicons.dev/icons?i=react', level: 80 },
-    { name: 'Node.js', icon: 'https://skillicons.dev/icons?i=nodejs', level: 70 },
+    { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js', level: 60 },
+    { name: 'TypeScript', icon: 'https://skillicons.dev/icons?i=ts', level: 55 },
+    { name: 'React', icon: 'https://skillicons.dev/icons?i=react', level: 60 },
+    { name: 'Node.js', icon: 'https://skillicons.dev/icons?i=nodejs', level: 60 },
     { name: 'MySQL', icon: 'https://skillicons.dev/icons?i=mysql', level: 75 },
+    { name: 'MongoDB', icon: 'https://skillicons.dev/icons?i=mongodb', level: 70 },
     { name: 'Java', icon: 'https://skillicons.dev/icons?i=java', level: 70 },
     { name: 'Python', icon: 'https://skillicons.dev/icons?i=python', level: 65 },
   ];
@@ -19,9 +23,9 @@ const About = () => {
   ];
 
   return (
-    <div className="mx-4 my-25 md:mx-16 lg:mx-32 xl:mx-44 p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30" id="about">
+    <div className="absolute flex flex-col items-center justify-center mx-4 my-25 md:mx-16 lg:mx-32 xl:mx-44 p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30" id="about">
 
-      {/* Title */}
+ 
       <div className="text-center mb-16">
         <h1 className="text-5xl lg:text-7xl font-bold mb-4">
           <span className="bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">
@@ -31,9 +35,9 @@ const About = () => {
         <div className="w-24 h-1 bg-gradient-to-r from-[#3B82F6] to-[#10B981] mx-auto rounded-full"></div>
       </div>
 
-      {/* Main Content */}
+
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-        {/* Left - Image */}
+       
         <div className="flex-shrink-0">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-2xl blur-xl opacity-30"></div>
@@ -45,9 +49,8 @@ const About = () => {
           </div>
         </div>
 
-        {/* Right - Content */}
         <div className="flex flex-col gap-8 flex-1">
-          {/* Description */}
+         
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-bold text-[#F1F5F9]">
               Hello! I'm Eshan Hasitha
@@ -63,7 +66,7 @@ const About = () => {
             </p>
           </div>
 
-          {/* Skills Section */}
+          
           <div className="mt-6">
             <h3 className="text-2xl md:text-3xl font-bold text-[#F1F5F9] mb-6 flex items-center gap-2">
               <span className="w-2 h-8 bg-gradient-to-b from-[#3B82F6] to-[#10B981] rounded-full"></span>
@@ -96,7 +99,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* Achievements */}
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 pt-12 border-t border-[#475569]/30">
         {achievements.map((achievement, index) => (
           <div key={index} className="text-center p-6 bg-[#334155] rounded-xl hover:bg-[#475569]/50 transition-all duration-300 hover:scale-105">
