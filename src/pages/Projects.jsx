@@ -50,24 +50,24 @@ const Projects = () => {
   }
 
   return (
-    <div className='absolute flex flex-col items-center justify-center  mx-4 my-25 md:mx-16 lg:mx-32 xl:mx-44 p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30' id='projects'>
+    <div className='absolute flex flex-col items-center justify-center mx-4 my-20 sm:my-24 md:mx-8 lg:mx-32 xl:mx-44 p-6 sm:p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30' id='projects'>
       
       
-      <div className='text-center mb-16'>
-        <h1 className='text-5xl lg:text-7xl font-bold mb-4'>
+      <div className='text-center mb-8 sm:mb-12 md:mb-16'>
+        <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4'>
           <span className="bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">
             My Projects
           </span>
         </h1>
-        <div className="w-24 h-1 bg-gradient-to-r from-[#3B82F6] to-[#10B981] mx-auto rounded-full mb-6"></div>
-        <p className='text-lg md:text-xl text-[#94A3B8] max-w-3xl mx-auto leading-relaxed'>
+        <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-[#3B82F6] to-[#10B981] mx-auto rounded-full mb-4 sm:mb-6"></div>
+        <p className='text-sm sm:text-base md:text-lg lg:text-xl text-[#94A3B8] max-w-3xl mx-auto leading-relaxed px-4'>
           Showcase of my recent work demonstrating skills in full-stack development, 
           modern frameworks, and creative problem-solving.
         </p>
       </div>
 
       {/* Projects Grid */}
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full'>
         {projects.map((project) => {
           const images = project.images?.length ? project.images : [project.image]
           const idx = slideIndex[project.id] ?? 0
@@ -83,7 +83,7 @@ const Projects = () => {
               }}
             >
              
-              <div className='relative h-46 overflow-hidden bg-[#1E293B]'>
+              <div className='relative h-48 sm:h-52 md:h-56 overflow-hidden bg-[#1E293B]'>
                 <div
                   className='flex h-full transition-transform duration-150 ease-in-out'
                   style={{ transform: `translateX(-${idx * 100}%)` }}
@@ -101,12 +101,12 @@ const Projects = () => {
               </div>
 
              
-              <div className='p-3 space-y-2'>
-                <h2 className='text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent'>
+              <div className='p-4 sm:p-5 space-y-2 sm:space-y-3'>
+                <h2 className='text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent'>
                   {project.title}
                 </h2>
                 
-                <p className='text-[#94A3B8] text-base leading-relaxed line-clamp-3'>
+                <p className='text-[#94A3B8] text-sm sm:text-base leading-relaxed line-clamp-3'>
                   {project.description}
                 </p>
 
@@ -122,12 +122,12 @@ const Projects = () => {
                 </div>
 
    
-                <div className='flex gap-3 pt-4'>
+                <div className='flex gap-2 sm:gap-3 pt-3 sm:pt-4'>
                   <a 
                     href={project.liveLink}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex-1 text-center bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white px-4 py-2.5 rounded-full text-sm font-bold transition-all duration-300 hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-105'
+                    className='flex-1 text-center bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white px-4 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-105 active:scale-95'
                   >
                     Live Demo
                   </a>
@@ -135,7 +135,7 @@ const Projects = () => {
                     href={project.githubLink}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex-1 text-center border-2 border-[#94A3B8] text-[#94A3B8] px-4 py-2.5 rounded-full text-sm font-bold transition-all duration-300 hover:border-[#3B82F6] hover:text-[#3B82F6] hover:scale-105'
+                    className='flex-1 text-center border-2 border-[#94A3B8] text-[#94A3B8] px-4 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 hover:border-[#3B82F6] hover:text-[#3B82F6] hover:scale-105 active:scale-95'
                   >
                     GitHub
                   </a>

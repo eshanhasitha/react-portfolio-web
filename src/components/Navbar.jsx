@@ -39,9 +39,6 @@ const NavBar = () => {
                 style={{ width: user.imageSize, height: user.imageSize }}
               />
             </div>
-            <span className="text-[#F1F5F9] font-bold text-xl hidden sm:block tracking-wide">
-              {user.name}
-            </span>
           </Link>
 
           {/* Desktop Navigation */}

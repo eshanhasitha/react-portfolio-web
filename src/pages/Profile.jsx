@@ -54,8 +54,8 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-20" id="profile">
-      <div className="relative mt-8 mb-8">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-16 sm:py-20" id="profile">
+      <div className="relative mt-4 sm:mt-6 md:mt-8 mb-6 sm:mb-8">
         <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] via-[#10B981] to-[#3B82F6] rounded-full blur-xl opacity-50 animate-pulse"></div>
         <div className="relative p-1.5 bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-full shadow-2xl">
           <img
@@ -82,35 +82,35 @@ const Profile = () => {
       </div>
 
 
-      <div className="flex flex-col sm:flex-row items-center gap-4 mt-12 mb-8 border-amber-300">
+      <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12 mb-6 sm:mb-8 w-full max-w-md px-4">
         <Link
           to="/contact"
-          className="group  relative px-8 py-4 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-105 overflow-hidden"
+          className="group w-full sm:w-auto relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-base sm:text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-105 active:scale-95 overflow-hidden text-center"
         >
           <span className="relative z-10">Get In Touch</span>
-          <div className="absolute p-4 inset-0 bg-gradient-to-r from-[#2563EB] to-[#3B82F6] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2563EB] to-[#3B82F6] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </Link>
         
         <Link
           to="/projects"
-          className="px-8 py-4 border-2 border-[#3B82F6] text-[#3B82F6] font-bold text-lg rounded-full transition-all duration-300 hover:bg-[#3B82F6]/10 hover:scale-105"
+          className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#3B82F6] text-[#3B82F6] font-bold text-base sm:text-lg rounded-full transition-all duration-300 hover:bg-[#3B82F6]/10 hover:scale-105 active:scale-95 text-center"
         >
           View Projects
         </Link>
       </div>
 
-      <div className="grid grid-cols-3 gap-8 mt-16 w-full max-w-3xl px-4">
+      <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12 md:mt-16 w-full max-w-3xl px-4">
         <div className="text-center">
-          <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">1+</h3>
-          <p className="text-[#94A3B8] text-sm md:text-base mt-2">Years Experience</p>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">1+</h3>
+          <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base mt-1 sm:mt-2">Years Experience</p>
         </div>
         <div className="text-center">
-          <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">1+</h3>
-          <p className="text-[#94A3B8] text-sm md:text-base mt-2">Projects Done</p>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">1+</h3>
+          <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base mt-1 sm:mt-2">Projects Done</p>
         </div>
         <div className="text-center">
-          <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">24/7</h3>
-          <p className="text-[#94A3B8] text-sm md:text-base mt-2">Available</p>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">24/7</h3>
+          <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base mt-1 sm:mt-2">Available</p>
         </div>
       </div>
 
