@@ -6,6 +6,7 @@ import About from './pages/About'
 import Navbar from './components/Navbar'
 import Dot from './components/Dot.jsx'
 import Background from './components/Background.jsx'
+import ScrollToTop from './components/ScrollToTop'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Background />
       <Dot/>
       <Navbar/>
+      <ScrollToTop />
       
       <main className='relative z-10'>
         <Routes>

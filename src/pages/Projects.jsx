@@ -50,7 +50,7 @@ const Projects = () => {
   }
 
   return (
-    <div className='absolute flex flex-col items-center justify-center mx-4 my-20 sm:my-24 md:mx-8 lg:mx-32 xl:mx-44 p-6 sm:p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30' id='projects'>
+    <div className='absolute flex flex-col items-center justify-center mx-4 mt-24 sm:mt-28 mb-20 sm:mb-24 md:mx-8 lg:mx-32 xl:mx-44 p-6 sm:p-8 md:p-12 bg-[#1E293B]/40 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-500 ease-out' id='projects'>
       
       
       <div className='text-center mb-8 sm:mb-12 md:mb-16'>
@@ -75,7 +75,7 @@ const Projects = () => {
           return (
             <div 
               key={project.id}
-              className='group bg-[#334155] rounded-xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#3B82F6]/20 border border-[#475569]/30'
+              className='group bg-[#334155]/40 backdrop-blur-md rounded-xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-500 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#3B82F6]/30'
               onMouseEnter={() => setHoverId(project.id)}
               onMouseLeave={() => {
                 setHoverId(null)
@@ -114,7 +114,7 @@ const Projects = () => {
                   {project.technologies.map((tech, index) => (
                     <span 
                       key={index}
-                      className='px-3 py-1 bg-[#1E293B] border border-[#3B82F6]/30 rounded-full text-[#3B82F6] text-xs font-semibold hover:bg-[#3B82F6]/10 transition-colors'
+                      className='px-3 py-1 bg-[#1E293B]/40 backdrop-blur-sm border border-[#3B82F6]/30 rounded-full text-[#3B82F6] text-xs font-semibold hover:bg-[#3B82F6]/20 hover:border-[#3B82F6]/50 transition-all duration-500 ease-out hover:scale-105'
                     >
                       {tech}
                     </span>

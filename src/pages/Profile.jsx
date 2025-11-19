@@ -54,7 +54,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-16 sm:py-20" id="profile">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 pt-24 sm:pt-28 pb-16 sm:pb-20" id="profile">
       <div className="relative mt-4 sm:mt-6 md:mt-8 mb-6 sm:mb-8">
         <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] via-[#10B981] to-[#3B82F6] rounded-full blur-xl opacity-50 animate-pulse"></div>
         <div className="relative p-1.5 bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-full shadow-2xl">
@@ -82,7 +82,7 @@ const Profile = () => {
       </div>
 
 
-      <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12 mb-6 sm:mb-8 w-full max-w-md px-4">
+      <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12 w-full max-w-md px-4">
         <Link
           to="/contact"
           className="group w-full sm:w-auto relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-base sm:text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-105 active:scale-95 overflow-hidden text-center"
@@ -99,7 +99,52 @@ const Profile = () => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12 md:mt-16 w-full max-w-3xl px-4">
+      {/* Social Links */}
+      <div className="flex items-center justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 mb-6 sm:mb-8">
+        <a
+          href="https://github.com/eshanhasitha"
+          target="_blank"
+          rel="noreferrer"
+          className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#1E293B]/60 backdrop-blur-md rounded-full border border-white/10 transition-all duration-500 hover:border-[#3B82F6] hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-110 active:scale-95"
+        >
+          <img
+            src="https://skillicons.dev/icons?i=github"
+            alt="GitHub"
+            className="w-6 h-6 sm:w-7 sm:h-7 transition-transform duration-500 group-hover:rotate-12"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6]/20 to-[#10B981]/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/eshanhasitha"
+          target="_blank"
+          rel="noreferrer"
+          className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#1E293B]/60 backdrop-blur-md rounded-full border border-white/10 transition-all duration-500 hover:border-[#0A66C2] hover:shadow-lg hover:shadow-[#0A66C2]/50 hover:scale-110 active:scale-95"
+        >
+          <img
+            src="https://skillicons.dev/icons?i=linkedin"
+            alt="LinkedIn"
+            className="w-6 h-6 sm:w-7 sm:h-7 transition-transform duration-500 group-hover:rotate-12"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A66C2]/20 to-[#0077B5]/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </a>
+
+        <a
+          href="https://discord.com/users/eshanhasitha"
+          target="_blank"
+          rel="noreferrer"
+          className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#1E293B]/60 backdrop-blur-md rounded-full border border-white/10 transition-all duration-500 hover:border-[#5865F2] hover:shadow-lg hover:shadow-[#5865F2]/50 hover:scale-110 active:scale-95"
+        >
+          <img
+            src="https://skillicons.dev/icons?i=discord"
+            alt="Discord"
+            className="w-6 h-6 sm:w-7 sm:h-7 transition-transform duration-500 group-hover:rotate-12"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#5865F2]/20 to-[#7289DA]/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </a>
+      </div>
+
+      <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full max-w-3xl px-4">
         <div className="text-center">
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">1+</h3>
           <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base mt-1 sm:mt-2">Years Experience</p>

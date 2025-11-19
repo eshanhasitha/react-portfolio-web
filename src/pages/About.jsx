@@ -23,7 +23,7 @@ const About = () => {
   ];
 
   return (
-    <div className="absolute flex flex-col items-center justify-center mx-4 my-20 sm:my-24 md:mx-8 lg:mx-32 xl:mx-44 p-6 sm:p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30" id="about">
+    <div className="absolute flex flex-col items-center justify-center mx-4 mt-24 sm:mt-28 mb-20 sm:mb-24 md:mx-8 lg:mx-32 xl:mx-44 p-6 sm:p-8 md:p-12 bg-[#1E293B]/40 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-500 ease-out" id="about">
 
  
       <div className="text-center mb-8 sm:mb-12 md:mb-16">
@@ -86,7 +86,7 @@ const About = () => {
                     </div>
                     <span className="text-sm sm:text-base text-[#3B82F6] font-semibold">{skill.level}%</span>
                   </div>
-                  <div className="w-full bg-[#334155] rounded-full h-2 overflow-hidden">
+                  <div className="w-full bg-[#334155]/40 backdrop-blur-sm rounded-full h-2 overflow-hidden border border-white/10">
                     <div
                       className="h-full bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-full transition-all duration-1000 ease-out"
                       style={{ width: `${skill.level}%` }}
@@ -102,7 +102,7 @@ const About = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12 md:mt-16 pt-8 sm:pt-10 md:pt-12 border-t border-[#475569]/30">
         {achievements.map((achievement, index) => (
-          <div key={index} className="text-center p-4 sm:p-5 md:p-6 bg-[#334155] rounded-xl hover:bg-[#475569]/50 transition-all duration-300 hover:scale-105">
+          <div key={index} className="text-center p-4 sm:p-5 md:p-6 bg-[#334155]/40 backdrop-blur-md rounded-xl border border-white/10 hover:border-white/20 hover:bg-[#475569]/30 transition-all duration-500 ease-out hover:scale-105 hover:shadow-lg">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent mb-2">
               {achievement.value}
             </h2>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Home, User, Briefcase, Mail, FileDown } from "lucide-react";
 
 const user = {
   name: "Eshan Hasitha",
@@ -11,10 +12,26 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "Home", to: "/" },
-    { label: "About", to: "/about" },
-    { label: "Projects", to: "/projects" },
-    { label: "Contact", to: "/contact" },
+    { 
+      label: "Home", 
+      to: "/",
+      icon: <Home className="w-6 h-6" />
+    },
+    { 
+      label: "About", 
+      to: "/about",
+      icon: <User className="w-6 h-6" />
+    },
+    { 
+      label: "Projects", 
+      to: "/projects",
+      icon: <Briefcase className="w-6 h-6" />
+    },
+    { 
+      label: "Contact", 
+      to: "/contact",
+      icon: <Mail className="w-6 h-6" />
+    },
   ];
 
   const handleNavClick = () => {
@@ -22,119 +39,131 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 h-20 content-center bg-[#1E293B]/80 backdrop-blur-md shadow-lg z-50 border-b border-[#475569]/30">
-      <div className="max-w-full px-3 mx-auto py-3">
-        <div className="flex justify-between items-center">
-          {/* Logo Section */}
-          <Link
-            to="/"
-            className="flex items-center gap-3 group transition-all duration-300 hover:scale-105"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <img
-                src={user.imagePath}
-                alt={`${user.name} logo`}
-                className="relative rounded-full border-none border-[#3B82F6] transition-all duration-300"
-                style={{ width: user.imageSize, height: user.imageSize }}
-              />
+    <>
+      {/* Glass Morphism Floating Navbar */}
+      <nav className="fixed top-6 right-6 md:left-1/2 md:-translate-x-1/2 md:right-auto z-50 w-auto md:w-auto">
+        <div className="relative">
+          {/* Glassmorphism Container */}
+          <div className="bg-[#1E293B]/40 backdrop-blur-xl rounded-full px-4 md:px-8 py-3 md:py-4 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-500 ease-out">
+            <div className="flex items-center justify-center gap-2">
+              {/* Navigation Links - Center */}
+              <ul className="hidden md:flex items-center gap-0">
+                {navItems.map((item, index) => (
+                  <li key={index} className="flex items-center">
+                    <Link
+                      to={item.to}
+                      className="relative flex items-center gap-2 px-4 py-2.5 text-[#E2E8F0] font-medium text-sm tracking-wide transition-all duration-500 ease-out hover:text-white group rounded-full overflow-hidden"
+                    >
+                      <span className="relative z-10 flex items-center gap-2.5 whitespace-nowrap">
+                        <span className="transition-transform duration-500 ease-out group-hover:scale-110">
+                          {item.icon}
+                        </span>
+                        <span className="inline-block max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 ease-out opacity-0 group-hover:opacity-100">
+                          {item.label}
+                        </span>
+                      </span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-[#3B82F6]/20 to-[#10B981]/20 rounded-full scale-0 group-hover:scale-100 transition-all duration-500 ease-out"></span>
+                    </Link>
+                    {index < navItems.length - 1 && (
+                      <div className="w-px h-8 bg-white/10 mx-1"></div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Divider */}
+              <div className="hidden md:block w-px h-8 bg-gradient-to-b from-transparent via-white/20 to-transparent mx-2"></div>
+
+              {/* Download CV Button - Desktop */}
+              <a
+                href="/CV.pdf"
+                download="Eshan_Hasitha_CV.pdf"
+                className="hidden md:flex relative items-center gap-2 px-5 py-2.5 text-white font-semibold text-sm tracking-wide transition-all duration-500 ease-out hover:text-white group rounded-full overflow-hidden flex-shrink-0 bg-gradient-to-r from-[#10B981]/10 to-[#059669]/10 border border-[#10B981]/30"
+              >
+                <span className="relative z-10 flex items-center gap-2.5 whitespace-nowrap">
+                  <span className="transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-12">
+                    <FileDown className="w-6 h-6" />
+                  </span>
+                  <span className="inline-block max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 ease-out opacity-0 group-hover:opacity-100">
+                    Resume
+                  </span>
+                </span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[#10B981]/30 to-[#059669]/30 rounded-full scale-0 group-hover:scale-100 transition-all duration-500 ease-out"></span>
+              </a>
+
+              {/* Mobile Menu Button - Only visible on mobile */}
+              <button
+                className="md:hidden flex flex-col gap-1 w-7 h-7 justify-center items-center z-50 relative flex-shrink-0 group"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label="Toggle menu"
+              >
+                <span
+                  className={`w-4 h-0.5 bg-white rounded-full transition-all duration-500 ease-out ${
+                    isOpen ? "rotate-45 translate-y-1.5" : "group-hover:w-5"
+                  }`}
+                ></span>
+                <span
+                  className={`w-4 h-0.5 bg-white rounded-full transition-all duration-500 ease-out ${
+                    isOpen ? "opacity-0" : "group-hover:w-3"
+                  }`}
+                ></span>
+                <span
+                  className={`w-4 h-0.5 bg-white rounded-full transition-all duration-500 ease-out ${
+                    isOpen ? "-rotate-45 -translate-y-1.5" : "group-hover:w-5"
+                  }`}
+                ></span>
+              </button>
             </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-2">
-            {navItems.map((item, index) => (
-              <li key={index}>
-                <Link
-                  to={item.to}
-                  className="relative px-5 py-2 text-[#94A3B8] font-semibold text-2xl tracking-wide transition-all duration-300 hover:text-[#3B82F6] group"
-                >
-                  {item.label}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-[#3B82F6] to-[#10B981] transition-all duration-300 group-hover:w-4/5 rounded-full"></span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          {/* GitHub Button - Desktop */}
-          <div className="hidden md:block">
-            <a
-              href="https://github.com/eshanhasitha"
-              target="_blank"
-              rel="noreferrer"
-              className="relative flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-semibold text-sm rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-105 group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#2563EB] to-[#3B82F6] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <img
-                src="https://skillicons.dev/icons?i=github"
-                alt="GitHub"
-                className="relative w-5 h-5 z-10"
-              />
-              <span className="relative z-10">GitHub</span>
-            </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center z-50 relative"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            <span
-              className={`w-6 h-0.5 bg-[#3B82F6] transition-all duration-300 ${
-                isOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            ></span>
-            <span
-              className={`w-6 h-0.5 bg-[#3B82F6] transition-all duration-300 ${
-                isOpen ? "opacity-0" : ""
-              }`}
-            ></span>
-            <span
-              className={`w-6 h-0.5 bg-[#3B82F6] transition-all duration-300 ${
-                isOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            ></span>
-          </button>
+          {/* Glow Effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6]/20 via-[#2563EB]/20 to-[#10B981]/20 rounded-full blur-xl -z-10 opacity-50 transition-opacity duration-500 hover:opacity-70"></div>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       <div
-        className={`md:hidden fixed top-20 left-0 right-0 bg-[#1E293B]/98 backdrop-blur-md border-b border-[#475569]/30 transition-all duration-300 ${
-          isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+        className={`md:hidden fixed top-20 right-6 w-[85vw] max-w-xs z-40 transition-all duration-500 ease-out ${
+          isOpen ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-8 scale-95 pointer-events-none"
         }`}
       >
-        <ul className="px-6 py-4 space-y-2">
-          {navItems.map((item, index) => (
-            <li key={index}>
-              <Link
-                to={item.to}
-                onClick={handleNavClick}
-                className="block px-4 py-3 text-[#94A3B8] font-medium text-base rounded-lg transition-all duration-200 hover:bg-[#334155] hover:text-[#3B82F6] hover:pl-6"
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-          <li className="pt-4 border-t border-[#475569]/30">
-            <a
-              href="https://github.com/eshanhasitha"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-semibold text-base rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-[#3B82F6]/50"
-            >
-              <img
-                src="https://skillicons.dev/icons?i=github"
-                alt="GitHub"
-                className="w-5 h-5"
-              />
-              <span>View GitHub</span>
-            </a>
-          </li>
-        </ul>
+        <div className="relative">
+          <div className="bg-[#1E293B]/40 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden">
+            <ul className="p-3 space-y-1">
+              {navItems.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    to={item.to}
+                    onClick={handleNavClick}
+                    className="flex items-center gap-3 px-5 py-3.5 text-[#E2E8F0] font-medium text-sm rounded-2xl transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-[#3B82F6]/20 hover:to-[#10B981]/20 hover:text-white hover:pl-7 hover:shadow-lg"
+                  >
+                    <span className="transition-transform duration-500 ease-out hover:scale-110">
+                      {item.icon}
+                    </span>
+                    <span>{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <a
+                  href="/CV.pdf"
+                  download="Eshan_Hasitha_CV.pdf"
+                  onClick={handleNavClick}
+                  className="flex items-center gap-3 px-5 py-3.5 text-[#E2E8F0] font-medium text-sm rounded-2xl transition-all duration-500 ease-out hover:bg-gradient-to-r hover:from-[#10B981]/20 hover:to-[#059669]/20 hover:text-white hover:pl-7 hover:shadow-lg"
+                >
+                  <span className="transition-transform duration-500 ease-out hover:scale-110">
+                    <FileDown className="w-6 h-6" />
+                  </span>
+                  <span>Resume</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          {/* Glow Effect for Mobile Menu */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6]/15 via-[#2563EB]/15 to-[#10B981]/15 rounded-3xl blur-xl -z-10 opacity-50"></div>
+        </div>
       </div>
-    </nav>
+    </>
   );
 };
 

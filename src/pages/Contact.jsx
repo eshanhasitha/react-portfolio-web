@@ -1,11 +1,12 @@
 import React from 'react'
+import { Mail, Phone, MapPin } from 'lucide-react'
 import Footer from '../components/Footer'
 
 const Contact = () => {
   return (
     <>
       <div className='flex flex-col'>
-        <div className='flex flex-col items-center justify-center mx-4 my-20 sm:my-24 md:mx-8 lg:mx-32 xl:mx-44 p-6 sm:p-8 md:p-12 bg-[#1E293B] rounded-2xl shadow-2xl border border-[#475569]/30' id='contact'>
+        <div className='flex flex-col items-center justify-center mx-4 mt-24 sm:mt-28 mb-20 sm:mb-24 md:mx-8 lg:mx-32 xl:mx-44 p-6 sm:p-8 md:p-12 bg-[#1E293B]/40 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-500 ease-out' id='contact'>
           
           <div className='text-center mb-8 sm:mb-12 md:mb-16'>
             <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4'>
@@ -32,11 +33,9 @@ const Contact = () => {
               </div>
               
               <div className='flex flex-col gap-4 sm:gap-6 mt-2 sm:mt-4'>
-                <div className='flex gap-3 sm:gap-5 items-center p-3 sm:p-4 bg-[#334155] rounded-xl hover:bg-[#475569]/50 transition-all duration-300 group'>
+                <div className='flex gap-3 sm:gap-5 items-center p-3 sm:p-4 bg-[#334155]/40 backdrop-blur-md rounded-xl border border-white/10 hover:border-white/20 hover:bg-[#475569]/30 transition-all duration-500 ease-out group hover:scale-105'>
                   <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 20 16">
-                      <path d="M18 0H2C0.9 0 0.00999999 0.9 0.00999999 2L0 14C0 15.1 0.9 16 2 16H18C19.1 16 20 15.1 20 14V2C20 0.9 19.1 0 18 0ZM18 4L10 9L2 4V2L10 7L18 2V4Z"/>
-                    </svg>
+                    <Mail className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div className='min-w-0 flex-1'>
                     <p className='text-xs sm:text-sm text-[#94A3B8]'>Email</p>
@@ -44,12 +43,9 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className='flex gap-3 sm:gap-5 items-center p-3 sm:p-4 bg-[#334155] rounded-xl hover:bg-[#475569]/50 transition-all duration-300 group'>
+                <div className='flex gap-3 sm:gap-5 items-center p-3 sm:p-4 bg-[#334155]/40 backdrop-blur-md rounded-xl border border-white/10 hover:border-white/20 hover:bg-[#475569]/30 transition-all duration-500 ease-out group hover:scale-105'>
                   <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="currentColor" strokeWidth="2"/>
-                      <path d="M12.5 7.5L8.5 11.5L12.5 15.5"/>
-                    </svg>
+                    <Phone className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div className='min-w-0 flex-1'>
                     <p className='text-xs sm:text-sm text-[#94A3B8]'>Phone</p>
@@ -57,11 +53,9 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className='flex gap-3 sm:gap-5 items-center p-3 sm:p-4 bg-[#334155] rounded-xl hover:bg-[#475569]/50 transition-all duration-300 group'>
+                <div className='flex gap-3 sm:gap-5 items-center p-3 sm:p-4 bg-[#334155]/40 backdrop-blur-md rounded-xl border border-white/10 hover:border-white/20 hover:bg-[#475569]/30 transition-all duration-500 ease-out group hover:scale-105'>
                   <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
-                    </svg>
+                    <MapPin className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                   </div>
                   <div className='min-w-0 flex-1'>
                     <p className='text-xs sm:text-sm text-[#94A3B8]'>Location</p>
@@ -80,7 +74,7 @@ const Contact = () => {
                     name='name' 
                     placeholder='John Doe' 
                     required
-                    className='w-full p-3 sm:p-4 rounded-lg border border-[#475569]/30 outline-none bg-[#334155] text-[#F1F5F9] text-sm sm:text-base placeholder-[#94A3B8] focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all'
+                    className='w-full p-3 sm:p-4 rounded-lg border border-white/10 outline-none bg-[#334155]/40 backdrop-blur-md text-[#F1F5F9] text-sm sm:text-base placeholder-[#94A3B8] focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/30 transition-all duration-500 ease-out hover:border-white/20'
                   />
                 </div>
 
@@ -91,7 +85,7 @@ const Contact = () => {
                     name='email' 
                     placeholder='john@example.com' 
                     required
-                    className='w-full p-3 sm:p-4 rounded-lg border border-[#475569]/30 outline-none bg-[#334155] text-[#F1F5F9] text-sm sm:text-base placeholder-[#94A3B8] focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all'
+                    className='w-full p-3 sm:p-4 rounded-lg border border-white/10 outline-none bg-[#334155]/40 backdrop-blur-md text-[#F1F5F9] text-sm sm:text-base placeholder-[#94A3B8] focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/30 transition-all duration-500 ease-out hover:border-white/20'
                   />
                 </div>
 
@@ -102,7 +96,7 @@ const Contact = () => {
                     rows="5" 
                     placeholder='Tell me about your project...' 
                     required
-                    className='w-full p-3 sm:p-4 rounded-lg border border-[#475569]/30 outline-none bg-[#334155] text-[#F1F5F9] text-sm sm:text-base placeholder-[#94A3B8] focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all resize-none'
+                    className='w-full p-3 sm:p-4 rounded-lg border border-white/10 outline-none bg-[#334155]/40 backdrop-blur-md text-[#F1F5F9] text-sm sm:text-base placeholder-[#94A3B8] focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/30 transition-all duration-500 ease-out resize-none hover:border-white/20'
                   />
                 </div>
                 
