@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { useSriLankaTime } from '../hooks/useSriLankaTime'
 
-const Projects = () => {
+const Projects = React.memo(() => {
+  const { eventMessage, timeTheme } = useSriLankaTime();
   const projects = [
     {
       id: 1,
@@ -11,7 +13,7 @@ const Projects = () => {
         "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706625/Screenshot_2025-11-09_164416_wtpavy.png",
         "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706629/Screenshot_2025-11-09_164556_ybqpzf.png",
         "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706628/Screenshot_2025-11-09_164613_d0mtjz.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706626/Screenshot_2025-11-09_164459_mriydp.png",
+        "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706626/Screenshot_2025-11-09_164499_mriydp.png",
         "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706630/Screenshot_2025-11-09_164703_lcg62o.png"
       ],
       technologies: ["MongoDB", "Express", "React", "Node.js", "Socket.io", "JWT", "Tailwind CSS"],
@@ -23,6 +25,11 @@ const Projects = () => {
   const [hoverId, setHoverId] = useState(null)
   const [slideIndex, setSlideIndex] = useState({})
   const intervalRef = useRef(null)
+
+  // Glassmorphism Navbar-style background
+  const getNavbarGlassBg = () => {
+    return 'bg-[#1E293B]/20 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl';
+  };
 
   useEffect(() => {
     if (hoverId == null) return
@@ -50,7 +57,14 @@ const Projects = () => {
   }
 
   return (
-    <div className='absolute flex flex-col items-center justify-center mx-4 mt-24 sm:mt-28 mb-20 sm:mb-24 md:mx-8 lg:mx-32 xl:mx-44 p-6 sm:p-8 md:p-12 bg-[#1E293B]/40 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-500 ease-out' id='projects'>
+    <div className={`flex flex-col items-center justify-center mx-4 mt-24 sm:mt-28 mb-20 sm:mb-24 md:mx-8 lg:mx-32 xl:mx-44 p-6 sm:p-8 md:p-12 ${getNavbarGlassBg()} hover:border-white/20 transition-colors duration-300`} id='projects'>
+      
+      {/* Event Banner */}
+      {eventMessage && (
+        <div className="absolute top-4 right-4 px-4 py-2 bg-gradient-to-r from-[#3B82F6]/20 to-[#10B981]/20 rounded-full border border-white/20 text-white text-xs sm:text-sm font-semibold animate-pulse">
+          {eventMessage}
+        </div>
+      )}
       
       
       <div className='text-center mb-8 sm:mb-12 md:mb-16'>
@@ -75,46 +89,61 @@ const Projects = () => {
           return (
             <div 
               key={project.id}
-              className='group bg-[#334155]/40 backdrop-blur-md rounded-xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-500 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#3B82F6]/30'
+              className='group relative bg-gradient-to-br from-[#2D3B4E]/25 via-[#1F2937]/20 to-[#1E293B]/25 backdrop-blur-2xl rounded-3xl border border-[#3B4B63]/40 shadow-2xl overflow-hidden hover:border-[#4A90E2]/70 hover:shadow-[0_0_30px_rgba(74,144,226,0.2)] transition-all duration-500 hover:scale-[1.02]'
               onMouseEnter={() => setHoverId(project.id)}
               onMouseLeave={() => {
                 setHoverId(null)
                 setSlideIndex(prev => ({ ...prev, [project.id]: 0 }))
               }}
             >
+              {/* Glass Shine Effect */}
+              <div className="absolute top-4 left-4 w-16 h-16 bg-white/3 rounded-full blur-2xl group-hover:bg-white/8 transition-all duration-500"></div>
+              
+              {/* Animated Border Glow */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#4A90E2]/0 via-transparent to-[#5DADE2]/0 group-hover:from-[#4A90E2]/15 group-hover:to-[#5DADE2]/15 transition-all duration-500"></div>
              
-              <div className='relative h-48 sm:h-52 md:h-56 overflow-hidden bg-[#1E293B]'>
+              <div className='relative h-48 sm:h-52 md:h-56 overflow-hidden'>
                 <div
-                  className='flex h-full transition-transform duration-150 ease-in-out'
-                  style={{ transform: `translateX(-${idx * 100}%)` }}
+                  className='flex h-full'
+                  style={{ 
+                    transform: `translateX(-${idx * 100}%)`,
+                    transition: 'transform 150ms linear'
+                  }}
                 >
                   {images.map((src, i) => (
                     <img
                       key={i}
                       src={src}
                       alt={`${project.title} ${i + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                      width="400"
+                      height="224"
                       className='min-w-full h-full object-cover'
                     />
                   ))}
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#334155] to-transparent opacity-60"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1E293B]/80 via-[#1E293B]/20 to-transparent"></div>
+                
+                {/* Image Overlay Glow on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#4A90E2]/0 to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
               </div>
 
              
-              <div className='p-4 sm:p-5 space-y-2 sm:space-y-3'>
-                <h2 className='text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent'>
+              <div className='p-5 sm:p-6 space-y-3 sm:space-y-4 relative'>
+                <h2 className='text-xl sm:text-2xl md:text-2xl font-bold bg-gradient-to-r from-white via-[#4A90E2] to-[#5DADE2] bg-clip-text text-transparent group-hover:from-[#5DADE2] group-hover:to-[#4A90E2] transition-all duration-500'>
                   {project.title}
                 </h2>
                 
-                <p className='text-[#94A3B8] text-sm sm:text-base leading-relaxed line-clamp-3'>
+                <p className='text-[#A8B8D0] text-sm sm:text-base leading-relaxed line-clamp-3 group-hover:text-[#B8C8E0] transition-colors duration-300'>
                   {project.description}
                 </p>
 
-                <div className='flex flex-wrap gap-2'>
+                <div className='flex flex-wrap gap-2 pt-1'>
                   {project.technologies.map((tech, index) => (
                     <span 
                       key={index}
-                      className='px-3 py-1 bg-[#1E293B]/40 backdrop-blur-sm border border-[#3B82F6]/30 rounded-full text-[#3B82F6] text-xs font-semibold hover:bg-[#3B82F6]/20 hover:border-[#3B82F6]/50 transition-all duration-500 ease-out hover:scale-105'
+                      className='px-2.5 py-1 bg-gradient-to-r from-[#2D3B4E]/40 to-[#1E293B]/40 border border-[#4A90E2]/25 rounded-full text-[#5DADE2] text-xs font-medium hover:border-[#4A90E2]/70 hover:bg-[#4A90E2]/15 hover:scale-105 transition-all duration-300'
                     >
                       {tech}
                     </span>
@@ -122,20 +151,21 @@ const Projects = () => {
                 </div>
 
    
-                <div className='flex gap-2 sm:gap-3 pt-3 sm:pt-4'>
+                <div className='flex gap-3 pt-3'>
                   <a 
                     href={project.liveLink}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex-1 text-center bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white px-4 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-105 active:scale-95'
+                    className='group/btn flex-1 relative px-4 py-2.5 bg-gradient-to-r from-[#4A90E2] to-[#5DADE2] text-white font-bold text-sm rounded-full transition-all duration-300 overflow-hidden text-center hover:shadow-[0_0_20px_rgba(74,144,226,0.4)] hover:scale-105'
                   >
-                    Live Demo
+                    <span className="relative z-10">Live Demo</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#5DADE2] to-[#4A90E2] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                   </a>
                   <a 
                     href={project.githubLink}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex-1 text-center border-2 border-[#94A3B8] text-[#94A3B8] px-4 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 hover:border-[#3B82F6] hover:text-[#3B82F6] hover:scale-105 active:scale-95'
+                    className='flex-1 px-4 py-2.5 border-2 border-[#4A90E2] text-[#4A90E2] font-bold text-sm rounded-full transition-all duration-300 hover:bg-[#4A90E2]/20 hover:border-[#5DADE2] hover:text-[#5DADE2] hover:shadow-[0_0_15px_rgba(74,144,226,0.2)] text-center hover:scale-105'
                   >
                     GitHub
                   </a>
@@ -147,6 +177,6 @@ const Projects = () => {
       </div>
     </div>
   )
-}
+})
 
 export default Projects

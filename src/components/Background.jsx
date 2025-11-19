@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 
 const Background = ({ count = 40 }) => {
   const [particles, setParticles] = useState([]);
@@ -76,8 +76,8 @@ const Background = ({ count = 40 }) => {
     setParticles(items);
   }, [count]);
 
-  // Theme colors based on time and events
-  const getThemeColors = () => {
+  // Theme colors based on time and events - Memoized for performance
+  const themeColors = useMemo(() => {
     // Event themes override time themes
     if (eventTheme === 'newYear') {
       return {
@@ -155,42 +155,41 @@ const Background = ({ count = 40 }) => {
           accent: 'from-[#1E3A8A]/12 to-[#312E81]/12'
         };
     }
-  };
-
-  const themeColors = getThemeColors();
+  }, [timeTheme, eventTheme]);
 
   return (
-    <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+    <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0" style={{ contain: 'layout style paint' }}>
       {/* Animated gradient background */}
       <div 
-        className={`absolute inset-0 bg-gradient-to-br ${themeColors.gradient} transition-all duration-[3000ms] ease-in-out`}
+        className={`absolute inset-0 bg-gradient-to-br ${themeColors.gradient} transition-all duration-[2000ms] ease-in-out`}
       />
       
       {/* Accent gradient overlay */}
       <div 
-        className={`absolute inset-0 bg-gradient-to-tr ${themeColors.accent} opacity-30 transition-all duration-[3000ms] ease-in-out`}
+        className={`absolute inset-0 bg-gradient-to-tr ${themeColors.accent} opacity-30 transition-all duration-[2000ms] ease-in-out`}
       />
 
       {/* Particles */}
       {particles.map((p) => (
         <span
           key={p.id}
-          className="absolute rounded-full blur-xs transition-colors duration-[3000ms]"
+          className="absolute rounded-full transition-colors duration-[2000ms]"
           style={{
             left: `${p.left}%`,
             bottom: `-10px`,
             width: `${p.size}px`,
             height: `${p.size}px`,
-            opacity: p.opacity * 0.6,
+            opacity: p.opacity * 0.5,
             backgroundColor: themeColors.particles,
             animation: `floatUp ${p.duration}s linear ${p.delay}s infinite`,
+            willChange: "transform"
           }}
         ></span>
       ))}
 
       {/* Event indicator */}
       {eventTheme && (
-        <div className="absolute top-4 left-4 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white text-sm font-semibold animate-pulse">
+        <div className="absolute top-4 left-4 px-4 py-2 bg-white/10 rounded-full border border-white/20 text-white text-sm font-semibold animate-pulse">
           🎉 {eventTheme === 'newYear' && 'Happy New Year!'}
           {eventTheme === 'sinhalaNewYear' && 'සුභ අලුත් අවුරුද්දක්!'}
           {eventTheme === 'independenceDay' && 'Independence Day 🇱🇰'}
@@ -202,11 +201,11 @@ const Background = ({ count = 40 }) => {
       <style>{`
         @keyframes floatUp {
           0% {
-            transform: translateY(0) scale(1);
-            opacity: 0.5;
+            transform: translate3d(0, 0, 0) scale(1);
+            opacity: 0.4;
           }
           100% {
-            transform: translateY(-110vh) scale(0.8);
+            transform: translate3d(0, -110vh, 0) scale(0.8);
             opacity: 0;
           }
         }
@@ -215,4 +214,4 @@ const Background = ({ count = 40 }) => {
   );
 };
 
-export default Background;
+export default React.memo(Background);

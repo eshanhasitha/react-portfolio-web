@@ -25,6 +25,46 @@ body {
   overflow-x: hidden;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+/* Performance optimizations for scrolling */
+.absolute {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduce paint complexity during scroll */
+img {
+  transform: translateZ(0);
+  content-visibility: auto;
+}
+
+/* Optimize backdrop filters */
+[class*='backdrop-blur'] {
+  transform: translateZ(0);
+  will-change: auto;
+}
+
+/* Contain paint for better performance */
+main, section, article {
+  contain: layout style paint;
+}
+
+/* Optimize animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Reduce repaints on hover */
+button, a, [class*='hover:'] {
+  contain: layout style;
+}
+
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -50,7 +90,19 @@ code {
 
 
 html {
+  scroll-behavior: auto;
+  scroll-padding-top: 100px;
+}
+
+/* Smooth scrolling with custom speed */
+* {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 

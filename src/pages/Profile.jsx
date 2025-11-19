@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useSriLankaTime } from '../hooks/useSriLankaTime';
 
 const user = {
   name: 'Eshan Hasitha',
@@ -10,10 +11,12 @@ const user = {
 
 const Profile = () => {
   const typedTextRef = useRef(null);
+  const { greeting, eventMessage } = useSriLankaTime();
 
   useEffect(() => {
     const strings = [
-      `Hi, I'm ${user.name}`,
+      greeting,
+      `I'm ${user.name}`,
       "Full-Stack Developer",
       "UI/UX Enthusiast",
       "Problem Solver",
@@ -27,13 +30,22 @@ const Profile = () => {
 
     const type = () => {
       const currentString = strings[currentStringIndex];
+      // Clamp index to valid range
+      if (currentCharIndex < 0) currentCharIndex = 0;
+      if (currentCharIndex > currentString.length) currentCharIndex = currentString.length;
       
       if (isDeleting) {
-        typedTextRef.current.textContent = currentString.substring(0, currentCharIndex - 1);
+        if (currentCharIndex > 0) {
+          typedTextRef.current.textContent = currentString.substring(0, currentCharIndex - 1);
+        } else {
+          typedTextRef.current.textContent = '';
+        }
         currentCharIndex--;
         typingSpeed = 50;
       } else {
-        typedTextRef.current.textContent = currentString.substring(0, currentCharIndex + 1);
+        if (currentCharIndex <= currentString.length) {
+          typedTextRef.current.textContent = currentString.substring(0, currentCharIndex + 1);
+        }
         currentCharIndex++;
         typingSpeed = 80;
       }
@@ -51,16 +63,26 @@ const Profile = () => {
     };
 
     type();
-  }, []);
+  }, [greeting]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 pt-24 sm:pt-28 pb-16 sm:pb-20" id="profile">
+      {/* Event Banner */}
+      {eventMessage && (
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 px-6 py-3 bg-gradient-to-r from-[#3B82F6]/20 to-[#10B981]/20 rounded-full border border-white/20 text-white text-sm sm:text-base font-semibold animate-pulse shadow-lg z-50">
+          {eventMessage}
+        </div>
+      )}
       <div className="relative mt-4 sm:mt-6 md:mt-8 mb-6 sm:mb-8">
         <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] via-[#10B981] to-[#3B82F6] rounded-full blur-xl opacity-50 animate-pulse"></div>
         <div className="relative p-1.5 bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-full shadow-2xl">
           <img
             src={user.imageUrl}
             alt={user.imageAlt}
+            loading="eager"
+            decoding="sync"
+            width="200"
+            height="200"
             className="rounded-full w-48 h-48 lg:w-64 lg:h-64 object-cover border-2 border-[#1E293B]"
             style={{
               width: user.size,
@@ -74,7 +96,7 @@ const Profile = () => {
         <h1 className="text-center text-4xl md:text-6xl lg:text-7xl font-bold text-[#F1F5F9] min-h-[100px] lg:min-h-[150px] flex items-center justify-center">
           <span 
             ref={typedTextRef}
-            className="bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent"
+            className="bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent typing-text"
           ></span>
           <span className="animate-blink ml-2 text-[#3B82F6]">|</span>
         </h1>
@@ -82,7 +104,7 @@ const Profile = () => {
       </div>
 
 
-      <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12 w-full max-w-md px-4">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 mt-8 sm:mt-10 md:mt-12 w-full max-w-md px-4">
         <Link
           to="/contact"
           className="group w-full sm:w-auto relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-base sm:text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-105 active:scale-95 overflow-hidden text-center"
@@ -105,11 +127,15 @@ const Profile = () => {
           href="https://github.com/eshanhasitha"
           target="_blank"
           rel="noreferrer"
-          className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#1E293B]/60 backdrop-blur-md rounded-full border border-white/10 transition-all duration-500 hover:border-[#3B82F6] hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-110 active:scale-95"
+          className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#1E293B]/60 rounded-full border border-white/10 transition-all duration-500 hover:border-[#3B82F6] hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-110 active:scale-95"
         >
           <img
             src="https://skillicons.dev/icons?i=github"
             alt="GitHub"
+            loading="lazy"
+            decoding="async"
+            width="28"
+            height="28"
             className="w-6 h-6 sm:w-7 sm:h-7 transition-transform duration-500 group-hover:rotate-12"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6]/20 to-[#10B981]/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -119,7 +145,7 @@ const Profile = () => {
           href="https://www.linkedin.com/in/eshanhasitha"
           target="_blank"
           rel="noreferrer"
-          className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#1E293B]/60 backdrop-blur-md rounded-full border border-white/10 transition-all duration-500 hover:border-[#0A66C2] hover:shadow-lg hover:shadow-[#0A66C2]/50 hover:scale-110 active:scale-95"
+          className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#1E293B]/60 rounded-full border border-white/10 transition-all duration-500 hover:border-[#0A66C2] hover:shadow-lg hover:shadow-[#0A66C2]/50 hover:scale-110 active:scale-95"
         >
           <img
             src="https://skillicons.dev/icons?i=linkedin"
@@ -133,7 +159,7 @@ const Profile = () => {
           href="https://discord.com/users/eshanhasitha"
           target="_blank"
           rel="noreferrer"
-          className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#1E293B]/60 backdrop-blur-md rounded-full border border-white/10 transition-all duration-500 hover:border-[#5865F2] hover:shadow-lg hover:shadow-[#5865F2]/50 hover:scale-110 active:scale-95"
+          className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#1E293B]/60 rounded-full border border-white/10 transition-all duration-500 hover:border-[#5865F2] hover:shadow-lg hover:shadow-[#5865F2]/50 hover:scale-110 active:scale-95"
         >
           <img
             src="https://skillicons.dev/icons?i=discord"
@@ -166,6 +192,10 @@ const Profile = () => {
         }
         .animate-blink {
           animation: blink 1s infinite;
+        }
+        .typing-text {
+          line-height: 1.2;
+          padding-bottom: 4px;
         }
       `}</style>
     </div>
