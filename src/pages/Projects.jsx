@@ -13,7 +13,7 @@ const Projects = React.memo(() => {
         "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706625/Screenshot_2025-11-09_164416_wtpavy.png",
         "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706629/Screenshot_2025-11-09_164556_ybqpzf.png",
         "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706628/Screenshot_2025-11-09_164613_d0mtjz.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706626/Screenshot_2025-11-09_164499_mriydp.png",
+        "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706626/Screenshot_2025-11-09_164459_mriydp.png",
         "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706630/Screenshot_2025-11-09_164703_lcg62o.png"
       ],
       technologies: ["MongoDB", "Express", "React", "Node.js", "Socket.io", "JWT", "Tailwind CSS"],
@@ -44,7 +44,7 @@ const Projects = React.memo(() => {
         const next = (current + 1) % imgs.length
         return { ...prev, [hoverId]: next }
       })
-    }, 2000)
+    }, 600)
 
     return () => {
       clearInterval(intervalRef.current)
@@ -156,16 +156,16 @@ const Projects = React.memo(() => {
                     href={project.liveLink}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='group/btn flex-1 relative px-4 py-2.5 bg-gradient-to-r from-[#4A90E2] to-[#5DADE2] text-white font-bold text-sm rounded-full transition-all duration-300 overflow-hidden text-center hover:shadow-[0_0_20px_rgba(74,144,226,0.4)] hover:scale-105'
+                    className='group/btn flex-1 relative px-4 py-2.5 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-sm rounded-full transition-all duration-300 overflow-hidden text-center hover:shadow-[0_0_20px_rgba(74,144,226,0.4)] hover:scale-105'
                   >
                     <span className="relative z-10">Live Demo</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#5DADE2] to-[#4A90E2] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#2563EB] to-[#3B82F6] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                   </a>
                   <a 
                     href={project.githubLink}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex-1 px-4 py-2.5 border-2 border-[#4A90E2] text-[#4A90E2] font-bold text-sm rounded-full transition-all duration-300 hover:bg-[#4A90E2]/20 hover:border-[#5DADE2] hover:text-[#5DADE2] hover:shadow-[0_0_15px_rgba(74,144,226,0.2)] text-center hover:scale-105'
+                    className='flex-1 px-4 py-2.5 border-2 border-[#4A90E2] text-[#4A90E2] font-bold text-sm rounded-full transition-all duration-300 hover:bg-[#3B82F6]/10  hover:shadow-[0_0_15px_rgba(74,144,226,0.2)] text-center hover:scale-105'
                   >
                     GitHub
                   </a>

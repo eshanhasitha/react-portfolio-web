@@ -115,7 +115,7 @@ const Profile = () => {
         
         <Link
           to="/projects"
-          className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#3B82F6] text-[#3B82F6] font-bold text-base sm:text-lg rounded-full transition-all duration-300 hover:bg-[#3B82F6]/10 hover:scale-105 active:scale-95 text-center"
+          className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#4A90E2] text-[#4A90E2] font-bold text-base sm:text-lg rounded-full transition-all duration-300 hover:bg-[#3B82F6]/10 hover:scale-105 active:scale-95 text-center"
         >
           View Projects
         </Link>
