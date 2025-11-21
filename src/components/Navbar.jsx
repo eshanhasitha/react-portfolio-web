@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Home, User, Briefcase, Mail, FileDown } from "lucide-react";
 import { useSriLankaTime } from '../hooks/useSriLankaTime';
+import CV from '../assets/CV.pdf'; // Import CV from assets
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -119,8 +120,10 @@ const NavBar = () => {
 
               {/* Download CV Button - Desktop */}
               <a
-                href="/CV.pdf"
+                href={CV}
                 download="Eshan_Hasitha_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hidden md:flex relative items-center gap-2 px-5 py-2.5 text-white font-semibold text-sm tracking-wide transition-all duration-500 ease-out hover:text-white group rounded-full overflow-hidden flex-shrink-0 bg-gradient-to-r from-[#10B981]/10 to-[#059669]/10 border border-[#10B981]/30"
               >
                 <span className="relative z-10 flex items-center gap-2.5 whitespace-nowrap">
@@ -215,8 +218,10 @@ const NavBar = () => {
                 }}
               >
                 <a
-                  href="/CV.pdf"
+                  href={CV}
                   download="Eshan_Hasitha_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={handleNavClick}
                   className="flex items-center gap-3 px-5 py-3.5 text-[#E2E8F0] font-medium text-sm rounded-2xl transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-[#10B981]/20 hover:to-[#059669]/20 hover:text-white hover:pl-7 hover:shadow-lg active:scale-95"
                 >
@@ -236,4 +241,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar
+export default NavBar;
