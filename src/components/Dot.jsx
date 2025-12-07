@@ -1,12 +1,24 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 function Dot() {
   const dotRef = useRef(null);
   const rafRef = useRef(null);
   const location = useLocation();
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isSmallScreen) return;
     const dot = dotRef.current;
     let mouseX = 0,
       mouseY = 0;
@@ -46,7 +58,9 @@ function Dot() {
         cancelAnimationFrame(rafRef.current);
       }
     };
-  }, [location.pathname]);
+  }, [location.pathname, isSmallScreen]);
+
+  if (isSmallScreen) return null;
 
   return (
     <div
