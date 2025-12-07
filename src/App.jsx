@@ -8,6 +8,7 @@ import Navbar from './components/Navbar.jsx'
 import Dot from './components/Dot.jsx'
 import Background from './components/Background.jsx'
 import ScrollToTop from './components/ScrollToTop'
+import Preloader from './components/Preloader.jsx'
 
 const pageVariants = {
   initial: {
@@ -35,6 +36,7 @@ const App = () => {
 
   return (
     <div className='relative bg-[#0F172A] min-h-screen text-[#F1F5F9]'>
+      <Preloader />
       <Background />
       <Dot/>
       <Navbar/>

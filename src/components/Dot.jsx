@@ -12,37 +12,26 @@ function Dot() {
       mouseY = 0;
     let dotX = 0,
       dotY = 0;
-    let lastUpdate = 0;
 
-    // Adjust speed based on current page
-    const isProfilePage = location.pathname === '/';
-    const speed = isProfilePage ? 0.15 : 0.4; // Slower tracking for better performance
+    // Improved smoothness with higher speed
+    const speed = 0.2;
 
     const handleMouseMove = (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     };
 
-    const animate = (timestamp) => {
-      // Throttle updates to ~60fps
-      if (timestamp - lastUpdate < 16) {
-        rafRef.current = requestAnimationFrame(animate);
-        return;
-      }
-      lastUpdate = timestamp;
-      
+    const animate = () => {
       const dx = mouseX - dotX - 10;
       const dy = mouseY - dotY - 10;
       
-      // Only update if movement is significant enough
-      if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
-        dotX += dx * speed;
-        dotY += dy * speed;
-        
-        if (dot) {
-          // Use translate3d for better GPU acceleration
-          dot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0)`;
-        }
+      // Smooth easing for better visual flow
+      dotX += dx * speed;
+      dotY += dy * speed;
+      
+      if (dot) {
+        // Use translate3d for better GPU acceleration
+        dot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0)`;
       }
       
       rafRef.current = requestAnimationFrame(animate);
