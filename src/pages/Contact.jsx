@@ -26,7 +26,7 @@ const Contact = React.memo(() => {
           <div className='text-center mb-8 sm:mb-12 md:mb-16'>
             <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4'>
               <span className="bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">
-                {greeting}! Get In Touch
+                Get In Touch
               </span>
             </h1>
             <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-[#3B82F6] to-[#10B981] mx-auto rounded-full mb-4 sm:mb-6"></div>
