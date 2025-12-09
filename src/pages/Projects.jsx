@@ -19,6 +19,24 @@ const Projects = React.memo(() => {
       technologies: ["MongoDB", "Express", "React", "Node.js", "Socket.io", "JWT", "Tailwind CSS"],
       liveLink: "https://chattygo.up.railway.app/",
       githubLink: "https://github.com/eshanhasitha/chat-app"
+    },
+
+    {
+      id: 2,
+      title: "SmartRent",
+      description: "A modern, responsive rental platform frontend built to simplify browsing and renting items across categories like music, sports, and decor.",
+      images: [
+        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291488/Screenshot_2025-12-09_201251_vvlo4h.png",
+        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291485/Screenshot_2025-12-09_201301_nwvvh5.png",
+        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291490/Screenshot_2025-12-09_201338_wfrodw.png",
+        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291485/Screenshot_2025-12-09_201308_cysxsr.png",
+        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291485/Screenshot_2025-12-09_201313_bwm5k0.png",
+        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291485/Screenshot_2025-12-09_201324_rargjc.png",
+        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291486/Screenshot_2025-12-09_201330_tanvbb.png"
+      ],
+      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+      liveLink: "https://smart-rent.pages.dev/",
+      githubLink: "https://github.com/nimeduhansaka/Smart-Rent"
     }
   ]
 

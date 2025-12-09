@@ -172,11 +172,11 @@ const Profile = () => {
 
       <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 w-full max-w-3xl px-4">
         <div className="text-center">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">1+</h3>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">2+</h3>
           <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base mt-1 sm:mt-2">Years Experience</p>
         </div>
         <div className="text-center">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">1+</h3>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">2+</h3>
           <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base mt-1 sm:mt-2">Projects Done</p>
         </div>
         <div className="text-center">
