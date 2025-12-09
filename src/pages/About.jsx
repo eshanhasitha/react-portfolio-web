@@ -19,8 +19,8 @@ const About = React.memo(() => {
   ];
 
   const achievements = [
-    { value: '1+', label: 'YEARS EXPERIENCE' },
-    { value: '1+', label: 'PROJECTS COMPLETED' },
+    { value: '2+', label: 'YEARS EXPERIENCE' },
+    { value: '2+', label: 'PROJECTS COMPLETED' },
     { value: '100%', label: 'CLIENT SATISFACTION' },
   ];
 
