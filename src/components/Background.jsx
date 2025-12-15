@@ -64,14 +64,18 @@ const Background = ({ count = 40 }) => {
   }, []);
 
   useEffect(() => {
-    // Generate random particle data
+    // Generate random snowflake data
+    const glyphs = ['❅', '❆', '❄️'];
     const items = Array.from({ length: count }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
-      size: 4 + Math.random() * 6,
-      duration: 10 + Math.random() * 10,
-      delay: Math.random() * 5,
-      opacity: 0.2 + Math.random() * 0.4,
+      size: 12 + Math.random() * 16,
+      duration: 12 + Math.random() * 12,
+      delay: Math.random() * 8,
+      opacity: 0.35 + Math.random() * 0.4,
+      drift: (Math.random() - 0.5) * 40, // gentle horizontal drift
+      spin: 180 + Math.random() * 360,
+      glyph: glyphs[Math.floor(Math.random() * glyphs.length)]
     }));
     setParticles(items);
   }, [count]);
@@ -169,22 +173,26 @@ const Background = ({ count = 40 }) => {
         className={`absolute inset-0 bg-gradient-to-tr ${themeColors.accent} opacity-30 transition-all duration-[2000ms] ease-in-out`}
       />
 
-      {/* Particles */}
+      {/* Snowflakes */}
       {particles.map((p) => (
         <span
           key={p.id}
-          className="absolute rounded-full transition-colors duration-[2000ms]"
+          aria-hidden="true"
+          className="absolute select-none transition-colors duration-[2000ms]"
           style={{
             left: `${p.left}%`,
-            bottom: `-10px`,
-            width: `${p.size}px`,
-            height: `${p.size}px`,
-            opacity: p.opacity * 0.5,
-            backgroundColor: themeColors.particles,
-            animation: `floatUp ${p.duration}s linear ${p.delay}s infinite`,
-            willChange: "transform"
+            top: `-10vh`,
+            fontSize: `${p.size}px`,
+            lineHeight: 1,
+            opacity: p.opacity,
+            color: themeColors.particles,
+            filter: 'drop-shadow(0 0 6px rgba(255,255,255,0.25))',
+            animation: `snowFall ${p.duration}s linear ${p.delay}s infinite`,
+            willChange: "transform, opacity",
+            '--drift': `${p.drift}px`,
+            '--spin': `${p.spin}deg`
           }}
-        ></span>
+        >{p.glyph}</span>
       ))}
 
       {/* Event indicator */}
@@ -199,13 +207,16 @@ const Background = ({ count = 40 }) => {
       )}
 
       <style>{`
-        @keyframes floatUp {
+        @keyframes snowFall {
           0% {
-            transform: translate3d(0, 0, 0) scale(1);
-            opacity: 0.4;
+            transform: translate3d(0, -10vh, 0) rotate(0deg);
+            opacity: 0;
+          }
+          10% {
+            opacity: 0.9;
           }
           100% {
-            transform: translate3d(0, -110vh, 0) scale(0.8);
+            transform: translate3d(var(--drift, 0px), 110vh, 0) rotate(var(--spin, 360deg));
             opacity: 0;
           }
         }
