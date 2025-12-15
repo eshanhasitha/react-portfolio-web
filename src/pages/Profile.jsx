@@ -18,7 +18,7 @@ const Profile = () => {
       greeting,
       `I'm ${user.name}`,
       "Full-Stack Developer",
-      "UI/UX Enthusiast",
+      "MLOps Enthusiast",
       "Problem Solver",
       "Tech Explorer"
     ];
