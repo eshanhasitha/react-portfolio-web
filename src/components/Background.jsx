@@ -65,7 +65,7 @@ const Background = ({ count = 40 }) => {
 
   useEffect(() => {
     // Generate random snowflake data
-    const glyphs = ['❅', '❆', '❄️'];
+    const glyphs = ['❄️'];
     const items = Array.from({ length: count }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
