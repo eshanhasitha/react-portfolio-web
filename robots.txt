@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://eshanhasitha.github.io/react-portfolio-web/sitemap.xml
