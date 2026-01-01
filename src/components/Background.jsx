@@ -7,11 +7,11 @@ const Background = ({ count = 40 }) => {
   // Get Sri Lanka time and determine theme
   useEffect(() => {
     const updateTheme = () => {
-      // Get Sri Lanka time (UTC+5:30)
+    
       const now = new Date();
       const sriLankaTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Colombo' }));
       const hours = sriLankaTime.getHours();
-      // Time-based themes only
+      
       if (hours >= 5 && hours < 7) {
         setTimeTheme('dawn'); // Dawn: 5am-7am
       } else if (hours >= 7 && hours < 12) {
