@@ -3,7 +3,6 @@ import React, { useEffect, useState, useMemo } from "react";
 const Background = ({ count = 40 }) => {
   const [particles, setParticles] = useState([]);
   const [timeTheme, setTimeTheme] = useState('night');
-  const [eventTheme, setEventTheme] = useState(null);
 
   // Get Sri Lanka time and determine theme
   useEffect(() => {
@@ -12,36 +11,7 @@ const Background = ({ count = 40 }) => {
       const now = new Date();
       const sriLankaTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Colombo' }));
       const hours = sriLankaTime.getHours();
-      const month = sriLankaTime.getMonth();
-      const date = sriLankaTime.getDate();
-
-      // Check for special events
-      let event = null;
-      
-      // New Year (January 1)
-      if (month === 0 && date === 1) {
-        event = 'newYear';
-      }
-      // Sinhala & Tamil New Year (April 13-14)
-      else if (month === 3 && (date === 13 || date === 14)) {
-        event = 'sinhalaNewYear';
-      }
-      // Independence Day (February 4)
-      else if (month === 1 && date === 4) {
-        event = 'independenceDay';
-      }
-      // Christmas (December 25)
-      else if (month === 11 && date === 25) {
-        event = 'christmas';
-      }
-      // Vesak (May - approximate, usually full moon)
-      else if (month === 4 && date >= 15 && date <= 20) {
-        event = 'vesak';
-      }
-
-      setEventTheme(event);
-
-      // Time-based themes
+      // Time-based themes only
       if (hours >= 5 && hours < 7) {
         setTimeTheme('dawn'); // Dawn: 5am-7am
       } else if (hours >= 7 && hours < 12) {
@@ -76,45 +46,8 @@ const Background = ({ count = 40 }) => {
     setParticles(items);
   }, [count]);
 
-  // Theme colors based on time and events - Memoized for performance
+  // Theme colors based purely on time - Memoized for performance
   const themeColors = useMemo(() => {
-    // Event themes override time themes
-    if (eventTheme === 'newYear') {
-      return {
-        gradient: 'from-[#FFD700]/10 via-[#FF6B6B]/8 to-[#4ECDC4]/10',
-        particles: '#FFD700',
-        accent: 'from-[#FFD700]/15 to-[#FF6B6B]/15'
-      };
-    }
-    if (eventTheme === 'sinhalaNewYear') {
-      return {
-        gradient: 'from-[#FF6B00]/10 via-[#FFD700]/8 to-[#00A86B]/10',
-        particles: '#FFD700',
-        accent: 'from-[#FF6B00]/15 to-[#FFD700]/15'
-      };
-    }
-    if (eventTheme === 'independenceDay') {
-      return {
-        gradient: 'from-[#8B0000]/10 via-[#FFD700]/8 to-[#FF8C00]/10',
-        particles: '#FFD700',
-        accent: 'from-[#8B0000]/15 to-[#FFD700]/15'
-      };
-    }
-    if (eventTheme === 'christmas') {
-      return {
-        gradient: 'from-[#C41E3A]/10 via-[#0F8A5F]/8 to-[#FFD700]/10',
-        particles: '#FFFFFF',
-        accent: 'from-[#C41E3A]/15 to-[#0F8A5F]/15'
-      };
-    }
-    if (eventTheme === 'vesak') {
-      return {
-        gradient: 'from-[#4B0082]/10 via-[#FF6B6B]/8 to-[#FFD700]/10',
-        particles: '#FFD700',
-        accent: 'from-[#4B0082]/15 to-[#FFD700]/15'
-      };
-    }
-
     // Time-based themes
     switch (timeTheme) {
       case 'dawn':
@@ -155,7 +88,7 @@ const Background = ({ count = 40 }) => {
           accent: 'from-[#1E3A8A]/12 to-[#312E81]/12'
         };
     }
-  }, [timeTheme, eventTheme]);
+  }, [timeTheme]);
 
   return (
     <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0" style={{ contain: 'layout style paint' }}>
@@ -186,17 +119,6 @@ const Background = ({ count = 40 }) => {
           }}
         ></span>
       ))}
-
-      {/* Event indicator */}
-      {eventTheme && (
-        <div className="absolute top-4 left-4 px-4 py-2 bg-white/10 rounded-full border border-white/20 text-white text-sm font-semibold animate-pulse">
-          🎉 {eventTheme === 'newYear' && 'Happy New Year!'}
-          {eventTheme === 'sinhalaNewYear' && 'සුභ අලුත් අවුරුද්දක්!'}
-          {eventTheme === 'independenceDay' && 'Independence Day 🇱🇰'}
-          {eventTheme === 'christmas' && 'Merry Christmas!'}
-          {eventTheme === 'vesak' && 'Vesak Poya 🏮'}
-        </div>
-      )}
 
       <style>{`
         @keyframes floatUp {

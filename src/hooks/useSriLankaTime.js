@@ -2,7 +2,6 @@
 
 export const useSriLankaTime = () => {
   const [timeTheme, setTimeTheme] = useState('night');
-  const [eventTheme, setEventTheme] = useState(null);
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -11,36 +10,8 @@ export const useSriLankaTime = () => {
       const now = new Date();
       const sriLankaTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Colombo' }));
       const hours = sriLankaTime.getHours();
-      const month = sriLankaTime.getMonth();
-      const date = sriLankaTime.getDate();
 
       setCurrentTime(sriLankaTime);
-
-      // Check for special events
-      let event = null;
-      
-      // New Year (January 1)
-      if (month === 0 && date === 1) {
-        event = 'newYear';
-      }
-      // Sinhala & Tamil New Year (April 13-14)
-      else if (month === 3 && (date === 13 || date === 14)) {
-        event = 'sinhalaNewYear';
-      }
-      // Independence Day (February 4)
-      else if (month === 1 && date === 4) {
-        event = 'independenceDay';
-      }
-      // Christmas (December 25)
-      else if (month === 11 && date === 25) {
-        event = 'christmas';
-      }
-      // Vesak (May - approximate, usually full moon)
-      else if (month === 4 && date >= 15 && date <= 20) {
-        event = 'vesak';
-      }
-
-      setEventTheme(event);
 
       // Time-based themes
       if (hours >= 5 && hours < 7) {
@@ -72,20 +43,9 @@ export const useSriLankaTime = () => {
     return 'Good Night';
   }, [currentTime]);
 
-  const eventMessage = useMemo(() => {
-    if (eventTheme === 'newYear') return '🎉 Happy New Year!';
-    if (eventTheme === 'sinhalaNewYear') return '🎊 සුභ අලුත් අවුරුද්දක්!';
-    if (eventTheme === 'independenceDay') return '🇱🇰 Happy Independence Day!';
-    if (eventTheme === 'christmas') return '🎄 Merry Christmas!';
-    if (eventTheme === 'vesak') return '🏮 Vesak Poya බුදු ජයන්ති!';
-    return null;
-  }, [eventTheme]);
-
   return {
     timeTheme,
-    eventTheme,
     currentTime,
-    greeting,
-    eventMessage
+    greeting
   };
 };

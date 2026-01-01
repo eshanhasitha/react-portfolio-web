@@ -1,11 +1,8 @@
 import React from 'react'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import Footer from '../components/Footer'
-import { useSriLankaTime } from '../hooks/useSriLankaTime'
 
 const Contact = React.memo(() => {
-  const { greeting, eventMessage, timeTheme } = useSriLankaTime();
-
   // Glassmorphism Navbar-style background
   const getNavbarGlassBg = () => {
     return 'bg-[#1E293B]/20 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl';
@@ -15,13 +12,6 @@ const Contact = React.memo(() => {
     <>
       <div className='flex flex-col'>
         <div className={`flex flex-col items-center justify-center mx-4 mt-24 sm:mt-28 mb-20 sm:mb-24 md:mx-8 lg:mx-32 xl:mx-44 p-6 sm:p-8 md:p-12 ${getNavbarGlassBg()} hover:border-white/20 transition-colors duration-300`} id='contact'>
-          
-          {/* Event Banner */}
-          {eventMessage && (
-            <div className="absolute top-4 right-4 px-4 py-2 bg-gradient-to-r from-[#3B82F6]/20 to-[#10B981]/20 rounded-full border border-white/20 text-white text-xs sm:text-sm font-semibold animate-pulse">
-              {eventMessage}
-            </div>
-          )}
           
           <div className='text-center mb-8 sm:mb-12 md:mb-16'>
             <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4'>

@@ -3,7 +3,7 @@ import { Mail, Linkedin, MessageCircle, Instagram, Phone } from 'lucide-react'
 import { useSriLankaTime } from '../hooks/useSriLankaTime'
 
 const Footer = () => {
-  const { currentTime, eventMessage, timeTheme, greeting } = useSriLankaTime();
+  const { currentTime } = useSriLankaTime();
   const year = currentTime.getFullYear();
 
   // Glassmorphism Navbar-style background for footer
@@ -12,12 +12,6 @@ const Footer = () => {
   };
   return (
     <footer className={`relative left-0 p-6 md:p-8 ${getFooterBackground()} transition-all duration-[2000ms] ease-in-out`}>
-      {/* Event Banner */}
-      {eventMessage && (
-        <div className="absolute top-2 left-1/2 -translate-x-1/2 px-4 py-2 bg-gradient-to-r from-[#3B82F6]/20 to-[#10B981]/20 rounded-full border border-white/20 text-white text-xs font-semibold animate-pulse shadow-lg">
-          {eventMessage}
-        </div>
-      )}
       <div className='max-w-7xl mx-auto'>
         <div className='flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8'>
           {/* Left Section */}
@@ -95,9 +89,6 @@ const Footer = () => {
           <div>
             <p className='text-sm text-[#94A3B8] text-center'>
               &copy; {year} Eshan Hasitha. All rights reserved.
-              {eventMessage && (
-                <span className='ml-2 text-[#3B82F6]'>{eventMessage}</span>
-              )}
             </p>
           </div>
         </div>

@@ -11,7 +11,7 @@ const user = {
 
 const Profile = () => {
   const typedTextRef = useRef(null);
-  const { greeting, eventMessage } = useSriLankaTime();
+  const { greeting } = useSriLankaTime();
 
   useEffect(() => {
     const strings = [
@@ -67,12 +67,6 @@ const Profile = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 pt-24 sm:pt-28 pb-16 sm:pb-20" id="profile">
-      {/* Event Banner */}
-      {eventMessage && (
-        <div className="absolute top-24 left-1/2 -translate-x-1/2 px-6 py-3 bg-gradient-to-r from-[#3B82F6]/20 to-[#10B981]/20 rounded-full border border-white/20 text-white text-sm sm:text-base font-semibold animate-pulse shadow-lg z-50">
-          {eventMessage}
-        </div>
-      )}
       <div className="relative mt-4 sm:mt-6 md:mt-8 mb-6 sm:mb-8">
         <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] via-[#10B981] to-[#3B82F6] rounded-full blur-xl opacity-50 animate-pulse"></div>
         <div className="relative p-1.5 bg-gradient-to-r from-[#3B82F6] to-[#10B981] rounded-full shadow-2xl">
