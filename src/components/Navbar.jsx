@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Home, User, Briefcase, Mail, FileDown } from "lucide-react";
 import { useSriLankaTime } from '../hooks/useSriLankaTime';
 import CV from '../assets/CV.pdf'; // Import CV from assets
 
-const NavBar = () => {
+const NavBar = ({ onOpenAbout, onOpenProjects, onOpenContact }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { timeTheme } = useSriLankaTime();
 
@@ -50,27 +49,35 @@ const NavBar = () => {
   const navItems = [
     { 
       label: "Home", 
-      to: "/",
+      href: "#profile",
       icon: <Home className="w-6 h-6" />
     },
     { 
       label: "About", 
-      to: "/about",
+      href: "#about-page",
+      action: onOpenAbout,
       icon: <User className="w-6 h-6" />
     },
     { 
       label: "Projects", 
-      to: "/projects",
+      href: "#projects-page",
+      action: onOpenProjects,
       icon: <Briefcase className="w-6 h-6" />
     },
     { 
       label: "Contact", 
-      to: "/contact",
+      href: "#contact-page",
+      action: onOpenContact,
       icon: <Mail className="w-6 h-6" />
     },
   ];
 
-  const handleNavClick = () => {
+  const handleNavClick = (event, item) => {
+    if (item?.action) {
+      event.preventDefault();
+      item.action();
+    }
+
     setIsOpen(false);
   };
 
@@ -88,35 +95,30 @@ const NavBar = () => {
       <nav className="fixed top-6 right-6 md:left-1/2 md:-translate-x-1/2 md:right-auto z-50 w-auto md:w-auto">
         <div className="relative">
           {/* Glassmorphism Container */}
-          <div className="bg-[#1E293B]/40 rounded-full px-4 md:px-8 py-3 md:py-4 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-500 ease-out">
-            <div className="flex items-center justify-center gap-2">
+          <div className={`${navbarColors.bg} ${navbarColors.border} ${navbarColors.backdrop} rounded-full border px-3 py-3 shadow-2xl transition-all duration-500 ease-out hover:border-white/20 md:px-4`}>
+            <div className="flex items-center justify-center">
               {/* Navigation Links - Center */}
-              <ul className="hidden md:flex items-center gap-0">
+              <ul className="hidden items-center md:flex">
                 {navItems.map((item, index) => (
-                  <li key={index} className="flex items-center">
-                    <Link
-                      to={item.to}
-                      className="relative flex items-center gap-2 px-4 py-2.5 text-[#E2E8F0] font-medium text-sm tracking-wide transition-all duration-500 ease-out hover:text-white group rounded-full overflow-hidden"
+                  <li key={index} className="flex h-12 items-center">
+                    <a
+                      href={item.href}
+                      onClick={(event) => handleNavClick(event, item)}
+                      aria-label={item.label}
+                      title={item.label}
+                      className="relative flex h-12 w-14 items-center justify-center rounded-full text-[#E2E8F0] transition-all duration-300 ease-out hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/20"
                     >
-                      <span className="relative z-10 flex items-center gap-2.5 whitespace-nowrap">
-                        <span className="transition-transform duration-500 ease-out group-hover:scale-110">
-                          {item.icon}
-                        </span>
-                        <span className="inline-block max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 ease-out opacity-0 group-hover:opacity-100">
-                          {item.label}
-                        </span>
-                      </span>
-                      <span className="absolute inset-0 bg-gradient-to-r from-[#3B82F6]/20 to-[#10B981]/20 rounded-full scale-0 group-hover:scale-100 transition-all duration-500 ease-out"></span>
-                    </Link>
+                      {item.icon}
+                    </a>
                     {index < navItems.length - 1 && (
-                      <div className="w-px h-8 bg-white/10 mx-1"></div>
+                      <div className="mx-1 h-8 w-px bg-white/10"></div>
                     )}
                   </li>
                 ))}
               </ul>
 
               {/* Divider */}
-              <div className="hidden md:block w-px h-8 bg-gradient-to-b from-transparent via-white/20 to-transparent mx-2"></div>
+              <div className="mx-1 hidden h-8 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent md:block"></div>
 
               {/* Download CV Button - Desktop */}
               <a
@@ -124,17 +126,11 @@ const NavBar = () => {
                 download="Eshan_Hasitha_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:flex relative items-center gap-2 px-5 py-2.5 text-white font-semibold text-sm tracking-wide transition-all duration-500 ease-out hover:text-white group rounded-full overflow-hidden flex-shrink-0 bg-gradient-to-r from-[#10B981]/10 to-[#059669]/10 border border-[#10B981]/30"
+                aria-label="Download resume"
+                title="Resume"
+                className="relative hidden h-12 w-16 flex-shrink-0 items-center justify-center rounded-full border border-[#10B981]/35 bg-[#10B981]/12 text-white transition-all duration-300 ease-out hover:border-[#10B981]/60 hover:bg-[#10B981]/20 focus:outline-none focus:ring-2 focus:ring-[#10B981]/30 md:flex"
               >
-                <span className="relative z-10 flex items-center gap-2.5 whitespace-nowrap">
-                  <span className="transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-12">
-                    <FileDown className="w-6 h-6" />
-                  </span>
-                  <span className="inline-block max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 ease-out opacity-0 group-hover:opacity-100">
-                    Resume
-                  </span>
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-[#10B981]/30 to-[#059669]/30 rounded-full scale-0 group-hover:scale-100 transition-all duration-500 ease-out"></span>
+                <FileDown className="h-6 w-6" />
               </a>
 
               {/* Mobile Menu Button - Only visible on mobile */}
@@ -195,16 +191,16 @@ const NavBar = () => {
                     transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
                   }}
                 >
-                  <Link
-                    to={item.to}
-                    onClick={handleNavClick}
+                  <a
+                    href={item.href}
+                    onClick={(event) => handleNavClick(event, item)}
                     className="flex items-center gap-3 px-5 py-3.5 text-[#E2E8F0] font-medium text-sm rounded-2xl transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-[#3B82F6]/20 hover:to-[#10B981]/20 hover:text-white hover:pl-7 hover:shadow-lg active:scale-95"
                   >
                     <span className="transition-transform duration-300 ease-out group-hover:scale-110">
                       {item.icon}
                     </span>
                     <span>{item.label}</span>
-                  </Link>
+                  </a>
                 </li>
               ))}
               <li

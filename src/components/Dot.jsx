@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 function Dot() {
   const dotRef = useRef(null);
   const rafRef = useRef(null);
-  const location = useLocation();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -34,8 +32,8 @@ function Dot() {
     };
 
     const animate = () => {
-      const dx = mouseX - dotX - 10;
-      const dy = mouseY - dotY - 10;
+      const dx = mouseX - dotX - 4;
+      const dy = mouseY - dotY - 4;
       
       // Smooth easing for better visual flow
       dotX += dx * speed;
@@ -58,14 +56,14 @@ function Dot() {
         cancelAnimationFrame(rafRef.current);
       }
     };
-  }, [location.pathname, isSmallScreen]);
+  }, [isSmallScreen]);
 
   if (isSmallScreen) return null;
 
   return (
     <div
       ref={dotRef}
-      className="fixed w-2 h-2 rounded-full pointer-events-none z-100"
+      className="fixed left-0 top-0 z-[9999] h-2 w-2 rounded-full pointer-events-none"
       style={{
         background: "radial-gradient(circle, #ffffff, #add8e6)",
         boxShadow: "0 0 20px 10px rgba(255, 255, 255, 0.3)",
