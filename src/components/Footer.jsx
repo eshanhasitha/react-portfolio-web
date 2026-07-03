@@ -1,95 +1,86 @@
 import React from 'react'
-import { Mail, Linkedin, MessageCircle, Instagram, Phone } from 'lucide-react'
+import { ArrowUp } from 'lucide-react'
 import { useSriLankaTime } from '../hooks/useSriLankaTime'
 
-const Footer = () => {
+const Footer = ({ onOpenAbout, onOpenProjects, onOpenContact }) => {
   const { currentTime } = useSriLankaTime();
   const year = currentTime.getFullYear();
 
-  // Glassmorphism Navbar-style background for footer
-  const getFooterBackground = () => {
-    return 'bg-[#1E293B]/20 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl';
+  const navLinks = [
+    { label: 'Home', href: '#profile' },
+    { label: 'About', href: '#about-page', action: onOpenAbout },
+    { label: 'Projects', href: '#projects-page', action: onOpenProjects },
+    { label: 'Contact', href: '#contact' },
+  ];
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
   return (
-    <footer className={`relative left-0 p-6 md:p-8 ${getFooterBackground()} transition-all duration-[2000ms] ease-in-out`}>
-      <div className='max-w-7xl mx-auto'>
-        <div className='flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8'>
-          {/* Left Section */}
-          <div className='text-center md:text-left'>
-            <h1 className='text-2xl md:text-3xl font-bold mb-2'>
-              <span className="bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">
-                Eshan Hasitha
-              </span>
-            </h1>
-            <p className='text-sm text-[#94A3B8] max-w-md'>
-              Full-Stack Developer | UI/UX Enthusiast<br/>
-              Building innovative solutions
+    <footer className='relative left-1/2 w-screen -translate-x-1/2 bg-transparent text-[#F1F5F9]'>
+      <button
+        type='button'
+        onClick={scrollToTop}
+        aria-label='Scroll to top'
+        className='fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#F1F5F9] text-[#0F172A] shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white focus:outline-none focus:ring-2 focus:ring-white/30 sm:bottom-8 sm:right-8 sm:h-14 sm:w-14'
+      >
+        <ArrowUp className='h-5 w-5 sm:h-6 sm:w-6' />
+      </button>
+
+      <div className='mx-auto max-w-7xl px-6 py-10 sm:px-8 md:px-12 lg:px-16'>
+        <div className='text-base font-medium text-[#F8FAFC] sm:text-lg'>
+          Eshan Hasitha
+        </div>
+
+        <div className='grid gap-12 py-20 sm:py-24 md:grid-cols-2 md:gap-20 lg:px-36'>
+          <div>
+            <p className='mb-8 text-sm font-medium uppercase tracking-[0.16em] text-[#64748B]'>
+              Navigate
             </p>
+            <nav aria-label='Footer navigation' className='flex flex-col items-start'>
+              {navLinks.map((link) => (
+                (link.action || (link.label === 'Contact' && onOpenContact)) ? (
+                  <button
+                    key={link.href}
+                    type='button'
+                    onClick={link.action || onOpenContact}
+                    className='text-left text-5xl font-light leading-[0.95] text-[#F8FAFC] transition-colors duration-300 hover:text-[#60A5FA] sm:text-6xl lg:text-7xl'
+                  >
+                    {link.label}
+                  </button>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className='text-5xl font-light leading-[0.95] text-[#F8FAFC] transition-colors duration-300 hover:text-[#60A5FA] sm:text-6xl lg:text-7xl'
+                  >
+                    {link.label}
+                  </a>
+                )
+              ))}
+            </nav>
           </div>
 
-          {/* Newsletter Section */}
-          <div className='flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto'>
-            <div className='relative w-full sm:w-auto'>
-              <input 
-                type='email' 
-                placeholder='Enter your email'
-                className='w-full sm:w-64 md:w-80 px-5 py-3 pr-11 border border-white/10 rounded-full outline-none bg-[#334155]/40 text-[#F1F5F9] text-sm placeholder-[#94A3B8] focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/30 transition-all duration-500 ease-out hover:border-white/20'
-              />
-              <Mail className='absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94A3B8]' />
-            </div>
-            <button className='w-full sm:w-auto bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white px-8 py-3 rounded-full text-sm font-bold transition-all duration-500 ease-out hover:shadow-lg hover:shadow-[#3B82F6]/50 hover:scale-105 active:scale-95 whitespace-nowrap'>
-              Subscribe
-            </button>
+          <div>
+            <p className='mb-8 text-sm font-medium uppercase tracking-[0.16em] text-[#64748B]'>
+              Connect
+            </p>
+            <a
+              href='https://www.linkedin.com/in/eshanhasitha/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-5xl font-light leading-none text-[#CBD5E1] transition-colors duration-300 hover:text-[#60A5FA] sm:text-6xl lg:text-7xl'
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
 
-        <hr className='border-white/10 my-6 md:my-8'/>
-
-        {/* Bottom Section */}
-        <div className='flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6'>
-          <div className='flex flex-col sm:flex-row items-center gap-3'>
-            <span className='text-sm text-[#94A3B8] font-medium'>Connect with me:</span>
-            <div className='flex gap-3'>
-              <a 
-                href="https://www.linkedin.com/in/eshanhasitha/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className='w-10 h-10 bg-[#334155]/40 hover:bg-[#0077B5] rounded-xl flex items-center justify-center transition-all duration-500 ease-out hover:scale-110 border border-white/10 hover:border-[#0077B5] group'
-              >
-                <Linkedin className='w-5 h-5 text-[#94A3B8] group-hover:text-white transition-colors duration-500' />
-              </a>
-              <a 
-                href="https://discord.com/users/eshanhasitha" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className='w-10 h-10 bg-[#334155]/40 hover:bg-[#5865F2] rounded-xl flex items-center justify-center transition-all duration-500 ease-out hover:scale-110 border border-white/10 hover:border-[#5865F2] group'
-              >
-                <MessageCircle className='w-5 h-5 text-[#94A3B8] group-hover:text-white transition-colors duration-500' />
-              </a>
-              <a 
-                href="https://www.instagram.com/eshanhasithas/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className='w-10 h-10 bg-[#334155]/40 hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] rounded-xl flex items-center justify-center transition-all duration-500 ease-out hover:scale-110 border border-white/10 hover:border-transparent group'
-              >
-                <Instagram className='w-5 h-5 text-[#94A3B8] group-hover:text-white transition-colors duration-500' />
-              </a>
-              <a 
-                href="https://wa.me/+94774506950" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className='w-10 h-10 bg-[#334155]/40 backdrop-blur-md hover:bg-[#25D366] rounded-xl flex items-center justify-center transition-all duration-500 ease-out hover:scale-110 border border-white/10 hover:border-[#25D366] group'
-              >
-                <Phone className='w-5 h-5 text-[#94A3B8] group-hover:text-white transition-colors duration-500' />
-              </a>
-            </div>
-          </div>
-
-          {/* Copyright */}
-          <div>
-            <p className='text-sm text-[#94A3B8] text-center'>
-              &copy; {year} Eshan Hasitha. All rights reserved.
-            </p>
+        <div className='border-t border-white/10 pt-8'>
+          <div className='flex flex-col gap-4 text-sm text-[#94A3B8] sm:flex-row sm:items-center sm:justify-between'>
+            <p>All Rights Reserved &copy; Eshan Hasitha</p>
+            <p>{year}</p>
           </div>
         </div>
       </div>

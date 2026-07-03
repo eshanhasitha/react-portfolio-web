@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const MotionDiv = motion.div;
+const MotionSpan = motion.span;
+
 function Preloader() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
@@ -54,14 +57,14 @@ function Preloader() {
   return (
     <AnimatePresence>
       {loading && (
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center gap-10 bg-[#040816]"
         >
           {/* Glowing background pulse to keep the screen alive */}
-          <motion.div
+          <MotionDiv
             className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15),_transparent_45%)]"
             animate={{ opacity: [0.3, 0.6, 0.3] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -81,20 +84,20 @@ function Preloader() {
               aria-valuemax={100}
             >
               {/* Progress bar that can bail out early when the app is ready */}
-              <motion.div
+              <MotionDiv
                 className="absolute inset-y-0 left-0 overflow-hidden rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400 shadow-[0_0_25px_rgba(14,165,233,0.45)]"
                 animate={{ width: `${displayProgress}%` }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
               >
-                <motion.span
+                <MotionSpan
                   className="absolute inset-y-0 -left-10 w-24 bg-white/40 blur-2xl"
                   animate={{ x: ["0%", "160%"] }}
                   transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
                 />
-              </motion.div>
+              </MotionDiv>
             </div>
           </div>
-        </motion.div>
+        </MotionDiv>
       )}
     </AnimatePresence>
   );

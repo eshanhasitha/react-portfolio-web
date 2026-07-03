@@ -1,189 +1,241 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
+import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
+import BorderGlow from '../components/BorderGlow.jsx'
+import ScrollReveal from '../components/ScrollReveal.jsx'
 
-const Projects = React.memo(() => {
-  const projects = [
-    {
-      id: 1,
-      title: "Chatty",
-      description: "A real-time MERN stack chat application with JWT authentication, image sharing, theme customization, and responsive design powered by Socket.io.",
-      images: [
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706640/ChatGPT_Image_Nov_9_2025_04_24_06_PM_aai8go.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706625/Screenshot_2025-11-09_164416_wtpavy.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706629/Screenshot_2025-11-09_164556_ybqpzf.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706628/Screenshot_2025-11-09_164613_d0mtjz.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706626/Screenshot_2025-11-09_164459_mriydp.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1762706630/Screenshot_2025-11-09_164703_lcg62o.png"
-      ],
-      technologies: ["MongoDB", "Express", "React", "Node.js", "Socket.io", "JWT", "Tailwind CSS"],
-      liveLink: "https://chattygo.up.railway.app/",
-      githubLink: "https://github.com/eshanhasitha/chat-app"
-    },
-
-    {
-      id: 2,
-      title: "SmartRent",
-      description: "A modern, responsive rental platform frontend built to simplify browsing and renting items across categories like music, sports, and decor.",
-      images: [
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291488/Screenshot_2025-12-09_201251_vvlo4h.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291485/Screenshot_2025-12-09_201301_nwvvh5.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291490/Screenshot_2025-12-09_201338_wfrodw.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291485/Screenshot_2025-12-09_201308_cysxsr.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291485/Screenshot_2025-12-09_201313_bwm5k0.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291485/Screenshot_2025-12-09_201324_rargjc.png",
-        "https://res.cloudinary.com/dpztt97x8/image/upload/v1765291486/Screenshot_2025-12-09_201330_tanvbb.png"
-      ],
-      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
-      liveLink: "https://smart-rent.pages.dev/",
-      githubLink: "https://github.com/nimeduhansaka/Smart-Rent"
-    }
-  ]
-
-  const [hoverId, setHoverId] = useState(null)
-  const [slideIndex, setSlideIndex] = useState({})
-  const intervalRef = useRef(null)
-
-  // Glassmorphism Navbar-style background
-  const getNavbarGlassBg = () => {
-    return 'bg-[#1E293B]/20 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl';
-  };
-
-  useEffect(() => {
-    if (hoverId == null) return
-
-    const proj = projects.find(p => p.id === hoverId)
-    const imgs = (proj?.images?.length ? proj.images : [proj?.image]).filter(Boolean)
-    if (!imgs || imgs.length < 2) return
-
-    intervalRef.current = setInterval(() => {
-      setSlideIndex(prev => {
-        const current = prev[hoverId] ?? 0
-        const next = (current + 1) % imgs.length
-        return { ...prev, [hoverId]: next }
-      })
-    }, 600)
-
-    return () => {
-      clearInterval(intervalRef.current)
-      intervalRef.current = null
-    }
-  }, [hoverId, projects])
-
-  if (projects.length === 0) {
-    return null
+const projects = [
+  {
+    id: 1,
+    title: 'Chatty',
+    description: 'A real-time MERN stack chat application with JWT authentication, image sharing, theme customization, and responsive design powered by Socket.io.',
+    images: [
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1762706640/ChatGPT_Image_Nov_9_2025_04_24_06_PM_aai8go.png',
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1762706625/Screenshot_2025-11-09_164416_wtpavy.png',
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1762706629/Screenshot_2025-11-09_164556_ybqpzf.png',
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1762706628/Screenshot_2025-11-09_164613_d0mtjz.png',
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1762706626/Screenshot_2025-11-09_164459_mriydp.png',
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1762706630/Screenshot_2025-11-09_164703_lcg62o.png'
+    ],
+    technologies: ['MongoDB', 'Express', 'React', 'Node.js', 'Socket.io', 'JWT', 'Tailwind CSS'],
+    liveLink: 'https://chattygo.up.railway.app/',
+    githubLink: 'https://github.com/eshanhasitha/chat-app'
+  },
+  {
+    id: 2,
+    title: 'SmartRent',
+    description: 'A modern, responsive rental platform frontend built to simplify browsing and renting items across categories like music, sports, and decor.',
+    images: [
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1765291488/Screenshot_2025-12-09_201251_vvlo4h.png',
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1765291485/Screenshot_2025-12-09_201301_nwvvh5.png',
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1765291490/Screenshot_2025-12-09_201338_wfrodw.png',
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1765291485/Screenshot_2025-12-09_201308_cysxsr.png',
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1765291485/Screenshot_2025-12-09_201313_bwm5k0.png',
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1765291485/Screenshot_2025-12-09_201324_rargjc.png',
+      'https://res.cloudinary.com/dpztt97x8/image/upload/v1765291486/Screenshot_2025-12-09_201330_tanvbb.png'
+    ],
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+    liveLink: 'https://smart-rent.pages.dev/',
+    githubLink: 'https://github.com/nimeduhansaka/Smart-Rent'
   }
+]
 
-  return (
-    <div className={`flex flex-col items-center justify-center mx-4 mt-24 sm:mt-28 mb-20 sm:mb-24 md:mx-8 lg:mx-32 xl:mx-44 p-6 sm:p-8 md:p-12 ${getNavbarGlassBg()} hover:border-white/20 transition-colors duration-300`} id='projects'>
-      
-      <div className='text-center mb-8 sm:mb-12 md:mb-16'>
-        <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4'>
-          <span className="bg-gradient-to-r from-[#3B82F6] to-[#10B981] bg-clip-text text-transparent">
-            My Projects
-          </span>
-        </h1>
-        <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-[#3B82F6] to-[#10B981] mx-auto rounded-full mb-4 sm:mb-6"></div>
-        <p className='text-sm sm:text-base md:text-lg lg:text-xl text-[#94A3B8] max-w-3xl mx-auto leading-relaxed px-4'>
-          Showcase of my recent work demonstrating skills in full-stack development, 
-          modern frameworks, and creative problem-solving.
-        </p>
+const formatProjectUrl = (url) => url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+
+const BrowserFrame = ({ project, image = project.images[0], compact = false }) => (
+  <BorderGlow
+    edgeSensitivity={28}
+    glowColor='205 92 72'
+    backgroundColor='#0B1220'
+    borderRadius={28}
+    glowRadius={34}
+    glowIntensity={0.76}
+    coneSpread={24}
+    animated={false}
+    colors={['#60a5fa', '#22d3ee', '#34d399']}
+    fillOpacity={0.22}
+    className='shadow-[0_24px_80px_rgba(2,6,23,0.35)] transition-transform duration-300 group-hover:-translate-y-1'
+  >
+    <div className='overflow-hidden rounded-[28px] bg-[#0B1220]'>
+      <div className='flex items-center gap-3 border-b border-white/10 bg-white/[0.04] px-4 py-3'>
+        <div className='flex shrink-0 items-center gap-1.5'>
+          <span className='h-2.5 w-2.5 rounded-full bg-[#F87171]' />
+          <span className='h-2.5 w-2.5 rounded-full bg-[#FBBF24]' />
+          <span className='h-2.5 w-2.5 rounded-full bg-[#34D399]' />
+        </div>
+        <div className='min-w-0 flex-1 rounded-full border border-white/10 bg-[#162238] px-4 py-2 text-xs font-medium text-[#CBD5E1]'>
+          <span className='block truncate'>{formatProjectUrl(project.liveLink)}</span>
+        </div>
       </div>
-
-      {/* Projects Grid */}
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full'>
-        {projects.map((project) => {
-          const images = project.images?.length ? project.images : [project.image]
-          const idx = slideIndex[project.id] ?? 0
-
-          return (
-            <div 
-              key={project.id}
-              className='group relative bg-gradient-to-br from-[#2D3B4E]/25 via-[#1F2937]/20 to-[#1E293B]/25 backdrop-blur-2xl rounded-3xl border border-[#3B4B63]/40 shadow-2xl overflow-hidden hover:border-[#4A90E2]/70 hover:shadow-[0_0_30px_rgba(74,144,226,0.2)] transition-all duration-500 hover:scale-[1.02]'
-              onMouseEnter={() => setHoverId(project.id)}
-              onMouseLeave={() => {
-                setHoverId(null)
-                setSlideIndex(prev => ({ ...prev, [project.id]: 0 }))
-              }}
-            >
-              {/* Glass Shine Effect */}
-              <div className="absolute top-4 left-4 w-16 h-16 bg-white/3 rounded-full blur-2xl group-hover:bg-white/8 transition-all duration-500"></div>
-              
-              {/* Animated Border Glow */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#4A90E2]/0 via-transparent to-[#5DADE2]/0 group-hover:from-[#4A90E2]/15 group-hover:to-[#5DADE2]/15 transition-all duration-500"></div>
-             
-              <div className='relative h-48 sm:h-52 md:h-56 overflow-hidden'>
-                <div
-                  className='flex h-full'
-                  style={{ 
-                    transform: `translateX(-${idx * 100}%)`,
-                    transition: 'transform 150ms linear'
-                  }}
-                >
-                  {images.map((src, i) => (
-                    <img
-                      key={i}
-                      src={src}
-                      alt={`${project.title} ${i + 1}`}
-                      loading="lazy"
-                      decoding="async"
-                      width="400"
-                      height="224"
-                      className='min-w-full h-full object-cover'
-                    />
-                  ))}
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1E293B]/80 via-[#1E293B]/20 to-transparent"></div>
-                
-                {/* Image Overlay Glow on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#4A90E2]/0 to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
-              </div>
-
-             
-              <div className='p-5 sm:p-6 space-y-3 sm:space-y-4 relative'>
-                <h2 className='text-xl sm:text-2xl md:text-2xl font-bold bg-gradient-to-r from-white via-[#4A90E2] to-[#5DADE2] bg-clip-text text-transparent group-hover:from-[#5DADE2] group-hover:to-[#4A90E2] transition-all duration-500'>
-                  {project.title}
-                </h2>
-                
-                <p className='text-[#A8B8D0] text-sm sm:text-base leading-relaxed line-clamp-3 group-hover:text-[#B8C8E0] transition-colors duration-300'>
-                  {project.description}
-                </p>
-
-                <div className='flex flex-wrap gap-2 pt-1'>
-                  {project.technologies.map((tech, index) => (
-                    <span 
-                      key={index}
-                      className='px-2.5 py-1 bg-gradient-to-r from-[#2D3B4E]/40 to-[#1E293B]/40 border border-[#4A90E2]/25 rounded-full text-[#5DADE2] text-xs font-medium hover:border-[#4A90E2]/70 hover:bg-[#4A90E2]/15 hover:scale-105 transition-all duration-300'
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-   
-                <div className='flex gap-3 pt-3'>
-                  <a 
-                    href={project.liveLink}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='group/btn flex-1 relative px-4 py-2.5 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white font-bold text-sm rounded-full transition-all duration-300 overflow-hidden text-center hover:shadow-[0_0_20px_rgba(74,144,226,0.4)] hover:scale-105'
-                  >
-                    <span className="relative z-10">Live Demo</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#2563EB] to-[#3B82F6] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                  </a>
-                  <a 
-                    href={project.githubLink}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='flex-1 px-4 py-2.5 border-2 border-[#4A90E2] text-[#4A90E2] font-bold text-sm rounded-full transition-all duration-300 hover:bg-[#3B82F6]/10  hover:shadow-[0_0_15px_rgba(74,144,226,0.2)] text-center hover:scale-105'
-                  >
-                    GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-          )
-        })}
+      <div className={compact ? 'aspect-[16/10] overflow-hidden bg-[#0F172A]' : 'aspect-video overflow-hidden bg-[#0F172A]'}>
+        <img
+          src={image}
+          alt={`${project.title} home screen`}
+          loading='lazy'
+          decoding='async'
+          width='900'
+          height='520'
+          className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]'
+        />
       </div>
     </div>
+  </BorderGlow>
+)
+
+const ProjectCard = ({ project, index, onSelect }) => (
+  <ScrollReveal delay={index * 90}>
+    <button
+      type='button'
+      onClick={() => onSelect(project)}
+      className='group flex h-full flex-col text-left outline-none'
+      aria-label={`Open ${project.title} project details`}
+    >
+      <BrowserFrame project={project} compact />
+      <div className='mt-6 flex flex-1 flex-col'>
+        <p className='mb-4 text-sm font-medium uppercase tracking-[0.18em] text-[#64748B]'>
+          0{index + 1}
+        </p>
+        <h2 className='text-3xl font-semibold leading-tight text-[#F8FAFC] transition-colors duration-300 group-hover:text-[#93C5FD]'>
+          {project.title}
+        </h2>
+        <p className='mt-4 line-clamp-3 text-base leading-relaxed text-[#94A3B8]'>
+          {project.description}
+        </p>
+        <div className='mt-6 flex flex-wrap gap-x-4 gap-y-2'>
+          {project.technologies.slice(0, 5).map((tech) => (
+            <span key={tech} className='text-xs font-semibold uppercase tracking-[0.14em] text-[#64748B]'>
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </button>
+  </ScrollReveal>
+)
+
+const ProjectDetail = ({ project, onBack }) => (
+  <div className='mt-16 border-t border-white/10 pt-10'>
+    <button
+      type='button'
+      onClick={onBack}
+      className='inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-5 py-3 text-sm font-semibold text-[#E2E8F0] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#60A5FA]/50 hover:text-white'
+    >
+      <ArrowLeft size={18} />
+      Back to projects
+    </button>
+
+    <div className='mt-10 grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start'>
+      <ScrollReveal>
+        <div className='group'>
+          <BrowserFrame project={project} />
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal delay={120}>
+        <div className='lg:pt-4'>
+          <p className='mb-6 text-sm font-medium uppercase tracking-[0.18em] text-[#64748B]'>
+            Overview
+          </p>
+          <p className='text-base leading-relaxed text-[#A8B5C8] sm:text-lg'>
+            {project.description}
+          </p>
+
+          <div className='mt-8 flex flex-wrap gap-x-4 gap-y-3'>
+            {project.technologies.map((tech) => (
+              <span key={tech} className='rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-xs font-semibold uppercase tracking-[0.13em] text-[#CBD5E1]'>
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className='mt-10 flex flex-wrap gap-3'>
+            <a
+              href={project.liveLink}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex items-center gap-2 rounded-full bg-[#F8FAFC] px-6 py-3 text-sm font-semibold text-[#0F172A] transition-all duration-300 hover:-translate-y-1 hover:bg-white'
+            >
+              Live Project
+              <ExternalLink size={17} />
+            </a>
+            <a
+              href={project.githubLink}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-[#F8FAFC] transition-all duration-300 hover:-translate-y-1 hover:border-[#60A5FA]/60 hover:text-[#93C5FD]'
+            >
+              GitHub
+              <Github size={17} />
+            </a>
+          </div>
+        </div>
+      </ScrollReveal>
+    </div>
+
+    <div className='mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3'>
+      {project.images.slice(1).map((src, index) => (
+        <ScrollReveal key={src} delay={index * 70}>
+          <div className='overflow-hidden rounded-2xl border border-white/10 bg-[#0B1220]'>
+            <img
+              src={src}
+              alt={`${project.title} screen ${index + 2}`}
+              loading='lazy'
+              decoding='async'
+              width='640'
+              height='360'
+              className='aspect-video h-full w-full object-cover'
+            />
+          </div>
+        </ScrollReveal>
+      ))}
+    </div>
+  </div>
+)
+
+const Projects = React.memo(() => {
+  const [selectedProject, setSelectedProject] = useState(null)
+  const headingTitle = selectedProject ? selectedProject.title : 'Selected\nWork'
+  const headingDescription = selectedProject
+    ? selectedProject.description
+    : 'A focused set of recent work demonstrating full-stack development, modern frontend tooling, and practical product thinking.'
+
+  return (
+    <section id='projects' className='mx-4 mt-24 mb-20 p-6 sm:mt-28 sm:mb-24 sm:p-8 md:mx-8 md:p-12 lg:mx-32 xl:mx-44'>
+      <div className='mx-auto max-w-7xl lg:px-20'>
+        <div className='grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-end lg:gap-20'>
+          <div>
+            <p className='mb-8 text-sm font-medium uppercase tracking-[0.18em] text-[#64748B]'>
+              {selectedProject ? 'Project' : 'Projects'}
+            </p>
+            <h1 className='text-5xl font-light leading-[0.95] text-[#F8FAFC] sm:text-6xl lg:text-7xl'>
+              {headingTitle.split('\n').map((line, index, lines) => (
+                <React.Fragment key={line}>
+                  {line}
+                  {index < lines.length - 1 && <br />}
+                </React.Fragment>
+              ))}
+            </h1>
+          </div>
+          <p className='max-w-xl text-base leading-relaxed text-[#94A3B8] sm:text-lg'>
+            {headingDescription}
+          </p>
+        </div>
+
+        {selectedProject ? (
+          <ProjectDetail project={selectedProject} onBack={() => setSelectedProject(null)} />
+        ) : (
+          <div className='mt-16 grid gap-x-7 gap-y-12 border-t border-white/10 pt-10 md:grid-cols-2 xl:grid-cols-3'>
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                onSelect={setSelectedProject}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
   )
 })
 
