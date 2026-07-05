@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import profileImage from '../assets/ChatGPT Image Jul 3, 2026, 08_22_24 AM.png'
+import profileImage from '../assets/img1.png'
 
 const profileSlides = [
   { title: "Hi, I'm Eshan Hasitha" },
@@ -174,39 +174,41 @@ const Profile = () => {
       id='profile'
       className='relative mx-4 min-h-[920vh] md:mx-8 lg:mx-32 xl:mx-44'
     >
-      <div className='sticky top-0 flex h-screen items-center justify-center overflow-hidden px-6 pt-24 pb-12 sm:px-8 md:px-12'>
-        <div className='absolute inset-x-0 top-24 mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-white/15 to-transparent' />
+      <div className='sticky top-0 h-screen overflow-hidden'>
+        <div className='absolute inset-x-0 top-[6.75rem] mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-white/15 to-transparent' />
 
-        <div className='relative flex w-full max-w-7xl items-center justify-center'>
-          <div className='absolute inset-0 mx-auto h-[min(70vw,38rem)] w-[min(70vw,38rem)] rounded-full bg-white/10 blur-3xl' />
+        <div className='absolute inset-x-0 bottom-0 top-[6.75rem] flex items-center justify-center px-6 sm:px-8 md:px-12'>
+          <div className='relative flex w-full max-w-7xl items-center justify-center'>
+            <div className='absolute inset-0 mx-auto h-[min(70vw,38rem)] w-[min(70vw,38rem)] rounded-full bg-white/10 blur-3xl' />
 
-          <img
-            src={profileImage}
-            alt='Eshan Hasitha'
-            loading='eager'
-            decoding='sync'
-            onLoad={() => setIsImageLoaded(true)}
-            className='relative z-10 h-[min(72vh,42rem)] w-auto max-w-[86vw] rounded-[32px] border border-white/10 object-cover grayscale shadow-2xl'
-          />
+            <img
+              src={profileImage}
+              alt='Eshan Hasitha'
+              loading='eager'
+              decoding='sync'
+              onLoad={() => setIsImageLoaded(true)}
+              className='relative z-10 h-[min(64vh,38rem)] w-auto max-w-[86vw] rounded-[32px] border border-white/10 object-cover grayscale shadow-2xl'
+            />
 
-          <div className='pointer-events-none absolute inset-x-0 bottom-10 z-20 flex items-end justify-center px-4 sm:bottom-12 lg:bottom-14'>
-            {profileSlides.map((slide, index) => {
-              const state = getSlideState(scrollPosition, index)
-              const shouldRenderSlide = state.opacity > 0.01 || (state.dustProgress > 0 && state.dustProgress < 1)
-              if (!shouldRenderSlide) return null
+            <div className='pointer-events-none absolute inset-x-0 bottom-10 z-20 flex items-end justify-center px-4 sm:bottom-12 lg:bottom-14'>
+              {profileSlides.map((slide, index) => {
+                const state = getSlideState(scrollPosition, index)
+                const shouldRenderSlide = state.opacity > 0.01 || (state.dustProgress > 0 && state.dustProgress < 1)
+                if (!shouldRenderSlide) return null
 
-              return (
-                <div
-                  key={slide.title}
-                  className='absolute max-w-5xl text-center'
-                  style={{
-                    transform: `translate3d(0, ${state.y}px, 0) scale(${state.scale})`
-                  }}
-                >
-                  <DustTitle title={slide.title} state={state} isImageLoaded={isImageLoaded} />
-                </div>
-              )
-            })}
+                return (
+                  <div
+                    key={slide.title}
+                    className='absolute max-w-5xl text-center'
+                    style={{
+                      transform: `translate3d(0, ${state.y}px, 0) scale(${state.scale})`
+                    }}
+                  >
+                    <DustTitle title={slide.title} state={state} isImageLoaded={isImageLoaded} />
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>

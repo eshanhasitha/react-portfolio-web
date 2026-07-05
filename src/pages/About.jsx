@@ -1,5 +1,5 @@
 import React from 'react'
-import profileImage from '../assets/IMG-20260619-WA0043.jpg'
+import profileImage from '../assets/img2.jpg'
 import ScrollReveal from '../components/ScrollReveal.jsx'
 
 const experienceItems = [
