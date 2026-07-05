@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import profileImage from '../assets/ChatGPT Image Jul 3, 2026, 08_22_24 AM.png'
+import profileImage from '../assets/img1.png'
 
 const profileSlides = [
   { title: "Hi, I'm Eshan Hasitha" },
