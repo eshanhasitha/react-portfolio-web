@@ -137,7 +137,7 @@ const Contact = React.memo(({ onOpenAbout, onOpenProjects, onOpenContact }) => (
               </div>
             </div>
 
-            <input type='hidden' name='_next' value='https://eshanhasitha.github.io/react-portfolio-web/' />
+            <input type='hidden' name='_next' value='https://www.eshanhasitha.me/' />
             <input type='hidden' name='_captcha' value='false' />
 
             <div className='mt-8 flex flex-col gap-3 sm:flex-row'>
